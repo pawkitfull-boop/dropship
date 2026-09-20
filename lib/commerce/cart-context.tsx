@@ -138,8 +138,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       // Handoff to live Shopify/Stripe URL
       // We do NOT clear the cart here. A web hook or successful return will clear it.
       window.location.href = checkoutUrl
-    } catch {
-      setError("Network failure. Please try again.")
+    } catch (err: any) {
+      setError(err.message || "Checkout failed. Please try again.")
       setIsLoading(false)
     }
   }, [items])
