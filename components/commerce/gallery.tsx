@@ -46,7 +46,7 @@ export function Gallery({ images }: { images: ImageAsset[] }) {
 
   if (!images || images.length === 0) {
     return (
-      <div className="flex aspect-square w-full items-center justify-center bg-ink-raised md:aspect-[4/5]">
+      <div className="flex aspect-square w-full items-center justify-center bg-gray-50 md:aspect-[4/5]">
         <span className="text-mono-caption text-text-muted">No image available</span>
       </div>
     )
@@ -60,7 +60,7 @@ export function Gallery({ images }: { images: ImageAsset[] }) {
           ref={scrollRef}
           onScroll={handleScroll}
           onKeyDown={handleKeyDown}
-          className="hide-scrollbar relative flex aspect-square snap-x snap-mandatory overflow-x-auto bg-ink-raised"
+          className="hide-scrollbar relative flex aspect-square snap-x snap-mandatory overflow-x-auto bg-white"
           tabIndex={0}
           role="region"
           aria-label="Image gallery. Use left and right arrows to navigate."
@@ -79,7 +79,7 @@ export function Gallery({ images }: { images: ImageAsset[] }) {
                 alt={image.altText || `Product image ${i + 1}`}
                 aspectRatio="auto"
                 preload={i === 0}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
           ))}
@@ -127,8 +127,8 @@ export function Gallery({ images }: { images: ImageAsset[] }) {
             id={`gallery-tab-${i}`}
             onClick={() => scrollTo(i)}
             className={cn(
-              "relative size-16 flex-none overflow-hidden border bg-ink-raised transition-colors md:size-[4.5rem]",
-              selectedIndex === i ? "border-bone" : "border-line hover:border-text-muted"
+              "relative size-16 flex-none overflow-hidden border bg-white transition-colors md:size-[4.5rem]",
+              selectedIndex === i ? "border-black" : "border-line hover:border-text-muted"
             )}
             aria-label={`View image ${i + 1}: ${image.altText || 'Thumbnail'}`}
           >
@@ -136,7 +136,7 @@ export function Gallery({ images }: { images: ImageAsset[] }) {
               src={image.url}
               alt=""
               aspectRatio="auto"
-              className={cn("transition-opacity", selectedIndex === i ? "opacity-100" : "opacity-55 hover:opacity-85")}
+              className={cn("object-contain transition-opacity", selectedIndex === i ? "opacity-100" : "opacity-55 hover:opacity-85")}
             />
           </button>
         ))}

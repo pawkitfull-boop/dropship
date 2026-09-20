@@ -5,7 +5,6 @@ import { PerfectHero } from "@/components/sections/perfect-hero"
 import { PawkitfullGroommistFeature } from "@/components/sections/pawkitfull-groommist-feature"
 import { PawkitfullProblemSolution } from "@/components/sections/pawkitfull-problem-solution"
 
-import { PawkitfullFreshflowFeature } from "@/components/sections/pawkitfull-freshflow-feature"
 import { PawkitfullCatSection } from "@/components/sections/pawkitfull-cat-section"
 import { PerfectBundle } from "@/components/sections/perfect-bundle"
 import { PerfectSuccess } from "@/components/sections/perfect-success"
@@ -28,7 +27,6 @@ export default async function Home() {
       <PerfectHero />
       <PawkitfullGroommistFeature />
       <PawkitfullProblemSolution />
-      <PawkitfullFreshflowFeature />
       <PawkitfullCatSection />
       <PerfectBundle />
       <PerfectSuccess />

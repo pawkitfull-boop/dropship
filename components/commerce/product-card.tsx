@@ -63,7 +63,7 @@ export function ProductCard({
             alt=""
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             priority={priority}
-            className="object-cover rounded-2xl relative z-10 w-full h-full"
+            className="object-contain rounded-2xl relative z-10 w-full h-full"
           />
         )}
       </Link>

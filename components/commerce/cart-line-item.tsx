@@ -16,7 +16,7 @@ export function CartLineItem({ item }: { item: CartItem }) {
       {/* Product Image */}
       <div className="relative h-28 w-[5.25rem] shrink-0 overflow-hidden rounded-2xl bg-gray-50 border-2 border-gray-100">
         <Link href={`/products/${item.productHandle}`} className="block size-full">
-          <CustomImage src={item.image} alt="" sizes="88px" className="object-cover" />
+          <CustomImage src={item.image} alt="" sizes="88px" className="object-contain" />
         </Link>
       </div>
       
