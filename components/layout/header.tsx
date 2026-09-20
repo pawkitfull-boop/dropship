@@ -17,7 +17,7 @@ export function Header() {
     <header className="sticky top-0 z-40 w-full flex flex-col shadow-sm">
       {/* Tier 1: Top Banner */}
       <div className="bg-[#cde4f0] py-2 px-4 flex items-center justify-center gap-4 text-center">
-        <span className="text-sm font-medium text-black">Free Shipping on All Orders $75+</span>
+        <span className="text-sm font-medium text-black">✨ Limited Time Only: Free Shipping on ALL Orders! 🚀</span>
         <Link href="/products/foldable-pet-hair-blow-dryer-bag" className="hidden sm:inline-flex bg-black text-white px-4 py-1 rounded-full text-xs font-bold tracking-wide hover:bg-gray-800 transition-colors">
           SHOP NOW
         </Link>
