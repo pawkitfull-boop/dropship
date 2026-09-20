@@ -8,6 +8,7 @@ import { motion } from "framer-motion"
 const testimonials = [
   {
     name: "Lucas M.",
+    avatar: "/images/avatars/lucas.jpg",
     quote: "This got my Golden Retriever completely dry in under 15 minutes! The wet dog smell is finally gone from my house. Absolute lifesaver during winter.",
     rating: 5,
     tag: "Golden Retriever",
@@ -15,6 +16,7 @@ const testimonials = [
   },
   {
     name: "Noah A.",
+    avatar: "/images/avatars/noah.jpg",
     quote: "The wrinkles and fear he used to have around the hair dryer vanished. He actually falls asleep inside the bag while it dries him. Highly recommend!",
     rating: 4.9,
     tag: "Bulldog",
@@ -22,6 +24,7 @@ const testimonials = [
   },
   {
     name: "Olivia R.",
+    avatar: "/images/avatars/olivia.jpg",
     quote: "My doodle has such thick fur, it used to take hours to dry her. With this bag, she's fluffy and dry in 20 minutes. It's so much easier on my back.",
     rating: 4.8,
     tag: "Goldendoodle",
@@ -29,6 +32,7 @@ const testimonials = [
   },
   {
     name: "Emma S.",
+    avatar: "/images/avatars/emma.jpg",
     quote: "Best investment for a multiple dog household. The universal fit really does work for both my small terrier and my large lab mix.",
     rating: 5,
     tag: "Multiple dogs",
@@ -85,8 +89,14 @@ export function ProductTestimonials() {
               className="snap-start shrink-0 w-[350px] md:w-[400px] bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow"
             >
               <div>
-                <div className="mb-8 relative size-16 rounded-full bg-gray-100 border border-gray-200 text-gray-400 flex items-center justify-center font-bold text-xl shadow-sm uppercase shrink-0">
-                  {testimonial.name.split(' ').map(n => n[0]).join('').substring(0, 2)}
+                <div className="mb-8 relative size-16 rounded-full border border-gray-200 text-gray-400 flex items-center justify-center font-bold text-xl shadow-sm uppercase shrink-0">
+                  {testimonial.avatar ? (
+                    <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover rounded-full" />
+                  ) : (
+                    <div className="w-full h-full bg-gray-100 flex items-center justify-center rounded-full">
+                      {testimonial.name.split(' ').map(n => n[0]).join('').substring(0, 2)}
+                    </div>
+                  )}
                   <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm whitespace-nowrap">
                     <Star size={8} fill="currentColor" /> {testimonial.rating}
                   </div>
