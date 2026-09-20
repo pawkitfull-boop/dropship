@@ -30,6 +30,7 @@ interface CartContextType {
   closeCart: () => void
   checkout: () => Promise<void>
   cartTotal: number
+  cartRawTotal: number
   cartCount: number
 }
 
@@ -143,26 +144,44 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [items])
 
-  const cartTotal = items.reduce((total, item) => total + (item.price * item.quantity), 0)
   const cartCount = items.reduce((count, item) => count + item.quantity, 0)
 
-  const value = React.useMemo(() => ({
-    items,
-    isHydrated,
-    isOpen,
-    isLoading,
-    error,
-    addItem,
-    removeItem,
-    undoRemove,
-    canUndo: lastRemoved !== null,
-    updateQuantity,
-    openCart,
-    closeCart,
-    checkout,
-    cartTotal,
-    cartCount
-  }), [items, isHydrated, isOpen, isLoading, error, addItem, removeItem, undoRemove, lastRemoved, updateQuantity, openCart, closeCart, checkout, cartTotal, cartCount])
+  const cartTotal = React.useMemo(() => {
+    const rawTotal = items.reduce((total, item) => total + (item.price * item.quantity), 0)
+    
+    // Automatic Bundle Discounts
+    if (cartCount === 2) {
+      // Duo: $59.99 (25% off)
+      return rawTotal * 0.75
+    } else if (cartCount >= 3) {
+      // Trio: $79.98 (Buy 2 Get 1 Free, or 33.33% off)
+      return rawTotal * 0.66666
+    }
+    
+    return rawTotal
+  }, [items, cartCount])
+
+  const value = React.useMemo(() => {
+    const rawTotal = items.reduce((total, item) => total + (item.price * item.quantity), 0)
+    return {
+      items,
+      isHydrated,
+      isOpen,
+      isLoading,
+      error,
+      addItem,
+      removeItem,
+      undoRemove,
+      canUndo: !!lastRemoved,
+      updateQuantity,
+      openCart,
+      closeCart,
+      checkout,
+      cartTotal,
+      cartRawTotal: rawTotal,
+      cartCount
+    }
+  }, [items, isHydrated, isOpen, isLoading, error, addItem, removeItem, undoRemove, lastRemoved, updateQuantity, openCart, closeCart, checkout, cartTotal, cartCount])
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }

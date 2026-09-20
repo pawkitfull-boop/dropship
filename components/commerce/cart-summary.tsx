@@ -14,7 +14,7 @@ export function CartSummary({
   className?: string
   buttonClassName?: string
 }) {
-  const { cartTotal, cartCount, checkout, isLoading, error } = useCart()
+  const { cartTotal, cartRawTotal, cartCount, checkout, isLoading, error } = useCart()
   const { money } = useCurrency()
 
   const handleCheckout = () => {
@@ -26,6 +26,9 @@ export function CartSummary({
     })
     checkout()
   }
+
+  const hasDiscount = cartRawTotal > cartTotal
+  const discountAmount = cartRawTotal - cartTotal
 
   return (
     <div className={`px-8 py-8 pb-[max(2rem,calc(env(safe-area-inset-bottom)+2rem))] bg-white ${className}`}>
@@ -39,11 +42,27 @@ export function CartSummary({
         </div>
       )}
 
-      <div className="flex items-baseline justify-between mb-2">
-        <span className="text-xl font-bold text-black">Subtotal</span>
-        <span className="text-2xl font-bold text-black tabular-nums">
-          {money(cartTotal)}
-        </span>
+      <div className="space-y-3 mb-2">
+        {hasDiscount && (
+          <div className="flex items-baseline justify-between text-gray-500 font-medium">
+            <span>Original Total</span>
+            <span className="line-through">{money(cartRawTotal)}</span>
+          </div>
+        )}
+        
+        {hasDiscount && (
+          <div className="flex items-baseline justify-between text-green-600 font-bold">
+            <span>Bundle Discount</span>
+            <span>-{money(discountAmount)}</span>
+          </div>
+        )}
+
+        <div className="flex items-baseline justify-between pt-2 border-t border-gray-100">
+          <span className="text-xl font-bold text-black">Subtotal</span>
+          <span className="text-2xl font-bold text-black tabular-nums">
+            {money(cartTotal)}
+          </span>
+        </div>
       </div>
 
       <p className="mt-2 text-sm text-gray-500 font-medium">
