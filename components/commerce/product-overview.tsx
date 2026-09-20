@@ -215,10 +215,10 @@ export function ProductOverview({ product }: { product: Product }) {
                       role="radio"
                       aria-checked={active}
                       onClick={() => setSelectedVariantId(v.id)}
-                      className={`flex h-10 min-w-[3rem] items-center justify-center rounded-md border px-4 text-sm font-medium transition-colors ${
+                      className={`flex h-11 min-w-[4rem] items-center justify-center rounded-lg border px-5 text-sm font-medium transition-all duration-200 ${
                         active
-                          ? "border-black bg-black text-white"
-                          : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
+                          ? "border-black bg-black text-white shadow-md ring-1 ring-black ring-offset-1"
+                          : "border-gray-200 bg-white text-gray-700 shadow-sm hover:-translate-y-0.5 hover:border-black/40 hover:bg-gray-50 hover:shadow-md hover:text-black active:translate-y-0 active:scale-95 cursor-pointer"
                       }`}
                     >
                       {v.title}
@@ -236,7 +236,7 @@ export function ProductOverview({ product }: { product: Product }) {
               whileTap={{ scale: 0.98 }}
               onClick={handleAddToCart}
               disabled={!isAvailable}
-              className="w-full bg-[#b3c5e8] hover:bg-[#a0b6e1] text-white h-14 rounded-full font-bold text-lg transition-colors flex items-center justify-center"
+              className="w-full bg-black hover:bg-gray-900 text-white shadow-xl hover:shadow-2xl h-14 rounded-full font-bold text-lg transition-all flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {money(selectedVariant.price)} | BUY IT NOW
             </motion.button>
