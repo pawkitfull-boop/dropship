@@ -176,12 +176,7 @@ export function ProductOverview({ product }: { product: Product }) {
 
           {/* Checklist */}
           <motion.div variants={staggerItem} className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-10 text-gray-500 text-sm font-medium">
-            <div className="flex items-center gap-2">
-              <div className="size-4 bg-[#e6bfa5] text-white rounded-full flex items-center justify-center p-0.5">
-                <Check size={10} strokeWidth={4} />
-              </div>
-              No Hidden Costs
-            </div>
+
             <div className="flex items-center gap-2">
               <div className="size-4 bg-[#e6bfa5] text-white rounded-full flex items-center justify-center p-0.5">
                 <Check size={10} strokeWidth={4} />
