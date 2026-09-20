@@ -13,12 +13,12 @@ const steps = [
   {
     title: "Secure the Bag",
     description: "Place your pet inside the bag and secure the comfortable velcro straps.",
-    image: "/images/step-2.jpg"
+    image: "/images/luna-dog.jpg"
   },
   {
     title: "Attach & Dry",
     description: "Connect your hair dryer to the hose and watch them get fluffy in minutes!",
-    image: "/images/luna-dog.jpg"
+    image: "/images/step-2.jpg"
   }
 ]
 
