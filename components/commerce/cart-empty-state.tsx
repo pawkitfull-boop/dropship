@@ -23,7 +23,7 @@ export function CartEmptyState({ isDrawer = false }: { isDrawer?: boolean }) {
         </div>
 
         <div className="mx-auto mt-8 w-full max-w-[16rem] overflow-hidden border border-line text-left transition-colors hover:border-text-muted">
-          <Link href="/products/foldable-pet-hair-blow-dryer-bag" onClick={isDrawer ? closeCart : undefined} className="group block">
+          <Link href="/products/pawkitfull-airdry-bag" onClick={isDrawer ? closeCart : undefined} className="group block">
             <div className="relative aspect-[4/5] overflow-hidden bg-ink-raised">
               <CustomImage 
                 src="/images/bundle-dogs.png" 

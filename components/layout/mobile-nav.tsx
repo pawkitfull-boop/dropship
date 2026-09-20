@@ -96,7 +96,7 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                       menu has the same typographic voice as the site. */}
                   <ul className="flex flex-col">
                     {[
-                      { href: "/products/foldable-pet-hair-blow-dryer-bag", label: "Shop Now" },
+                      { href: "/products/pawkitfull-airdry-bag", label: "Shop Now" },
                       { href: "/about", label: "Our story" },
                     ].map((l, i) => (
                       <motion.li key={l.href} {...item(i)} className="border-b border-line-soft">
@@ -120,20 +120,21 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                   {/* Featured — a menu that merchandises rather than just lists. */}
                   <motion.div {...item(2)} className="mt-10">
                     <Link
-                      href="/products/foldable-pet-hair-blow-dryer-bag"
+                      href="/products/pawkitfull-airdry-bag"
                       onClick={close}
                       className="group relative block overflow-hidden"
                     >
                       <CustomImage
-                        src="/images/placeholder-dryer-1.jpg"
-                        alt="Foldable Pet Hair Blow Dryer Bag"
+                        src="/images/white-dog.jpg"
+                        alt="Pawkitfull AirDry Bag"
                         aspectRatio="landscape"
                         sizes="(max-width: 420px) 100vw, 420px"
                         zoomOnHover
                       />
                       <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-deep/90 to-transparent p-5 pt-16">
                         <p className="text-mono-caption mb-1.5 text-text-muted">Start here</p>
-                        <p className="text-h3 text-bone">Foldable Pet Hair Blow Dryer Bag</p>
+                        <p className="text-h3 text-bone">Pawkitfull AirDry Bag</p>
+                        <p className="text-sm text-bone-muted mt-1">From $34.99</p>
                       </div>
                     </Link>
                   </motion.div>

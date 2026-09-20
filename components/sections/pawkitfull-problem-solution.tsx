@@ -8,25 +8,25 @@ const CARDS = [
   {
     problem: "Wet dog smell lingering?",
     action: "Dry them fast",
-    href: "/products/foldable-pet-hair-blow-dryer-bag",
+    href: "/products/pawkitfull-airdry-bag",
     bgColor: "bg-[#cde4f0]", // Light blue
   },
   {
     problem: "Towels just not cutting it?",
     action: "Dry them fast",
-    href: "/products/foldable-pet-hair-blow-dryer-bag",
+    href: "/products/pawkitfull-airdry-bag",
     bgColor: "bg-[#b6efc4]", // Light green
   },
   {
     problem: "Dog terrified of loud dryers?",
     action: "Dry them safely",
-    href: "/products/foldable-pet-hair-blow-dryer-bag",
+    href: "/products/pawkitfull-airdry-bag",
     bgColor: "bg-[#ffc7ba]", // Peach
   },
   {
     problem: "Bath time takes too long?",
     action: "Dry them fast",
-    href: "/products/foldable-pet-hair-blow-dryer-bag",
+    href: "/products/pawkitfull-airdry-bag",
     bgColor: "bg-[#faebd7]", // Cream
   }
 ]

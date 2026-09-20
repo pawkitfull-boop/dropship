@@ -45,7 +45,7 @@ export function PerfectHero() {
 
           <div className="flex flex-wrap items-center gap-4">
             <Link
-              href="/products/foldable-pet-hair-blow-dryer-bag"
+              href="/products/pawkitfull-airdry-bag"
               className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-black px-8 text-base font-bold text-white transition-transform hover:scale-105 w-fit group shadow-lg"
             >
               GET YOURS NOW

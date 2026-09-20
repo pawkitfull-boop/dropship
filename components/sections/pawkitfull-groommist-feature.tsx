@@ -15,7 +15,7 @@ export function PawkitfullGroommistFeature() {
           <div className="relative w-full max-w-[400px] aspect-[4/5] bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-white flex items-center justify-center">
             <CustomImage 
               src="/images/gallery-frenchie.jpg" 
-              alt="Foldable Pet Hair Blow Dryer Bag steps" 
+              alt="Pawkitfull AirDry Bag steps" 
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover absolute inset-0 size-full"
             />
@@ -67,7 +67,7 @@ export function PawkitfullGroommistFeature() {
           </div>
 
           <Link
-            href="/products/foldable-pet-hair-blow-dryer-bag"
+            href="/products/pawkitfull-airdry-bag"
             className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-black px-8 text-base font-bold text-white transition-transform hover:scale-105 w-fit group"
           >
             GET YOURS NOW

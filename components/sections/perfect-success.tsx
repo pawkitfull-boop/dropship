@@ -49,7 +49,7 @@ export function PerfectSuccess() {
           </div>
 
           <Link
-            href="/products/foldable-pet-hair-blow-dryer-bag"
+            href="/products/pawkitfull-airdry-bag"
             className="inline-flex h-14 items-center justify-center rounded-full bg-black px-10 text-sm font-bold text-white transition-colors hover:bg-gray-800 w-fit"
           >
             GET YOURS NOW
