@@ -60,7 +60,7 @@ export function Gallery({ images }: { images: ImageAsset[] }) {
           ref={scrollRef}
           onScroll={handleScroll}
           onKeyDown={handleKeyDown}
-          className="hide-scrollbar relative flex aspect-[4/5] snap-x snap-mandatory overflow-x-auto bg-ink-raised"
+          className="hide-scrollbar relative flex aspect-square snap-x snap-mandatory overflow-x-auto bg-ink-raised"
           tabIndex={0}
           role="region"
           aria-label="Image gallery. Use left and right arrows to navigate."
@@ -79,8 +79,7 @@ export function Gallery({ images }: { images: ImageAsset[] }) {
                 alt={image.altText || `Product image ${i + 1}`}
                 aspectRatio="auto"
                 preload={i === 0}
-                className="w-full h-full bg-white"
-                style={{ objectFit: "contain" }}
+                className="w-full h-full object-cover"
               />
             </div>
           ))}
@@ -137,8 +136,7 @@ export function Gallery({ images }: { images: ImageAsset[] }) {
               src={image.url}
               alt=""
               aspectRatio="auto"
-              className={cn("w-full h-full bg-white transition-opacity", selectedIndex === i ? "opacity-100" : "opacity-55 hover:opacity-85")}
-              style={{ objectFit: "contain" }}
+              className={cn("transition-opacity", selectedIndex === i ? "opacity-100" : "opacity-55 hover:opacity-85")}
             />
           </button>
         ))}
