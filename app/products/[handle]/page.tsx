@@ -6,7 +6,6 @@ import { getRelatedProducts, getReviewSummaries, getProduct, getProducts, getRev
 
 import { Section } from "@/components/layout/section"
 import { ProductStory } from "@/components/sections/product-story"
-import { PerfectBundle } from "@/components/sections/perfect-bundle"
 import { RecentlyViewed } from "@/components/commerce/recently-viewed"
 import { ProductSchema } from "@/components/commerce/product-schema"
 import { StickyCartController } from "@/components/commerce/sticky-cart-controller"
@@ -161,8 +160,6 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
           </div>
         </Section>
       )}
-      
-      <PerfectBundle />
       <RecentlyViewed currentHandle={product.handle} />
 
       <StickyCartController product={product} />
