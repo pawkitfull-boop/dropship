@@ -1,13 +1,6 @@
 import Link from "next/link"
 import { Wordmark } from "./wordmark"
 
-const SHOP = [
-  { href: "/collections/shop-all", label: "Shop all" },
-  { href: "/collections/best-sellers", label: "Best Sellers" },
-  { href: "/collections/dogs", label: "For Dogs" },
-  { href: "/collections/cats", label: "For Cats" },
-]
-
 const SUPPORT = [
   { href: "/faq", label: "FAQ" },
   { href: "/track-order", label: "Track order" },
@@ -50,7 +43,7 @@ export function Footer() {
   return (
     <footer className="bg-black pt-20 pb-12">
       <div className="mx-auto max-w-[88rem] px-gutter">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-4 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-4 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div className="col-span-2 md:col-span-4 lg:col-span-1 pr-8">
             <span className="text-3xl font-bold text-white tracking-tight">Pawkitfull</span>
             <p className="mt-6 text-base font-medium text-gray-400">
@@ -58,7 +51,6 @@ export function Footer() {
             </p>
           </div>
 
-          <Column title="Shop" links={SHOP} />
           <Column title="Support" links={SUPPORT} />
           <Column title="Company" links={COMPANY} />
         </div>
