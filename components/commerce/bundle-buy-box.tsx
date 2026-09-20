@@ -22,7 +22,7 @@ export function BundleBuyBox({ product }: BundleBuyBoxProps) {
   const defaultVariantId = product.variants[0]?.id || ""
   const [selections, setSelections] = React.useState<string[]>([defaultVariantId, defaultVariantId, defaultVariantId])
 
-  const basePrice = product.variants[0]?.price || 34.99
+  const basePrice = product.variants[0]?.price || 39.99
 
   const bundles = {
     single: {
