@@ -3,43 +3,15 @@
 import * as React from "react"
 import { Product } from "@/lib/commerce/types"
 import { Image as CustomImage } from "@/components/ui/image"
-import { ArrowLeft, ArrowRight, Heart, Check, Plus, Minus } from "lucide-react"
-import { useCurrency } from "@/lib/commerce/currency-context"
+import { ArrowLeft, ArrowRight, Check, Plus, Minus } from "lucide-react"
 import * as Accordion from "@radix-ui/react-accordion"
-import { useCart } from "@/lib/commerce/cart-context"
-import { trackEvent } from "@/lib/analytics/core"
 import { motion, AnimatePresence } from "framer-motion"
 import { FlashSaleTimer } from "./flash-sale-timer"
+import { BundleBuyBox } from "./bundle-buy-box"
 
 export function ProductOverview({ product }: { product: Product }) {
-  const [selectedVariantId, setSelectedVariantId] = React.useState(product.variants[0]?.id)
   const [activeImageIndex, setActiveImageIndex] = React.useState(0)
-  const { checkout, addItem } = useCart()
-  const { money } = useCurrency()
 
-  const selectedVariant = product.variants.find((v) => v.id === selectedVariantId) || product.variants[0]
-  const isAvailable = product.availableForSale && selectedVariant.availableForSale
-
-  const handleAddToCart = () => {
-    trackEvent("AddToCart", {
-      content_name: product.title,
-      content_ids: [selectedVariant.sku || selectedVariant.id],
-      content_type: "product",
-      value: selectedVariant.price,
-      currency: "USD"
-    })
-    
-    addItem({
-      productHandle: product.handle,
-      productTitle: product.title,
-      variantTitle: selectedVariant.title,
-      variantId: selectedVariant.id,
-      price: selectedVariant.price,
-      quantity: 1,
-      image: product.images[0]?.url || ""
-    })
-  }
-    
   const nextImage = () => {
     setActiveImageIndex((prev) => (prev + 1) % product.images.length)
   }
@@ -199,45 +171,9 @@ export function ProductOverview({ product }: { product: Product }) {
             <FlashSaleTimer />
           </motion.div>
 
-          {/* Variants */}
-          {product.variants.length > 1 && (
-            <motion.fieldset variants={staggerItem} className="mb-6">
-              <legend className="sr-only">Choose a size</legend>
-              <div className="flex flex-wrap gap-2">
-                {product.variants.map((v) => {
-                  const active = selectedVariantId === v.id
-                  return (
-                    <button
-                      key={v.id}
-                      type="button"
-                      role="radio"
-                      aria-checked={active}
-                      onClick={() => setSelectedVariantId(v.id)}
-                      className={`flex h-11 min-w-[4rem] items-center justify-center rounded-lg border px-5 text-sm font-medium transition-all duration-200 ${
-                        active
-                          ? "border-black bg-black text-white shadow-md ring-1 ring-black ring-offset-1"
-                          : "border-gray-200 bg-white text-gray-700 shadow-sm hover:-translate-y-0.5 hover:border-black/40 hover:bg-gray-50 hover:shadow-md hover:text-black active:translate-y-0 active:scale-95 cursor-pointer"
-                      }`}
-                    >
-                      {v.title}
-                    </button>
-                  )
-                })}
-              </div>
-            </motion.fieldset>
-          )}
-
-          {/* Add to Cart Button */}
+          {/* Bundle Buy Box */}
           <motion.div variants={staggerItem}>
-            <motion.button 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={handleAddToCart}
-              disabled={!isAvailable}
-              className="w-full bg-black hover:bg-gray-900 text-white shadow-xl hover:shadow-2xl h-14 rounded-full font-bold text-lg transition-all flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {money(selectedVariant.price)} | BUY IT NOW
-            </motion.button>
+            <BundleBuyBox product={product} />
           </motion.div>
           
 
