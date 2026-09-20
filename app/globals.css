@@ -1,26 +1,410 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   THE 10-MINUTE RESET — "EVENING INDEX"
+   ------------------------------------------------------------
+   The identity is built out of the product photography, not
+   against it. The imagery is dark, material and tactile —
+   slate, steel, charcoal, coarse linen. So the dominant ground
+   is a warm near-black, and light surfaces appear as deliberate
+   "lit" moments where reading and buying happen.
+
+   Heat is a signal, not a decoration: ember appears only where
+   the product story is genuinely about warmth, or where a state
+   must be read instantly.
+   ============================================================ */
+
+@theme {
+  /* --- Core pigments (Perfect Keto Lookalike) ---------------------- */
+  --color-ink: #000000;
+  --color-ink-deep: #000000;
+  --color-ink-raised: #222222;
+  --color-ink-line: #dddddd;
+
+  /* Light relief surfaces — where reading and buying happen. */
+  --color-bone: #ffffff;
+  --color-paper: #ffffff;
+  --color-clay: #f4f4f4;
+  --color-clay-deep: #e5e5e5;
+
+  /* Neutrals that hold contrast */
+  --color-ash: #666666;
+  --color-ash-light: #999999;
+
+  /* Perfect Keto Brand Colors */
+  --color-brand-blue: #cde4f0;
+  --color-brand-green: #b6efc4;
+  --color-brand-yellow: #fff0b3;
+  --color-brand-peach: #ffc7ba;
+  
+  /* Primary Action Color (Bright Green) */
+  --color-ember: #00c881;
+  --color-ember-deep: #00a66b;
+  --color-ember-bright: #00e594;
+  --color-steel: #008f5c;
+
+  /* --- Semantic surface roles ---------------------------- */
+  --color-surface: var(--color-bone);
+  --color-surface-deep: var(--color-paper);
+  --color-surface-raised: var(--color-bone);
+  --color-surface-lit: var(--color-bone);
+  --color-surface-lit-raised: var(--color-paper);
+  --color-surface-lit-sunken: var(--color-clay);
+
+  /* --- Semantic text roles ------------------------------- */
+  /* on light ground (primary) */
+  --color-text-primary: var(--color-ink-deep);
+  --color-text-secondary: var(--color-ink);
+  --color-text-muted: var(--color-ash);
+  
+  /* on dark ground (inverted) */
+  --color-text-on-lit: var(--color-bone);
+  --color-text-on-lit-secondary: var(--color-clay);
+  --color-text-on-lit-muted: var(--color-clay-deep);
+
+  /* --- Lines --------------------------------------------- */
+  --color-line: var(--color-clay-deep);
+  --color-line-soft: var(--color-clay);
+  --color-line-on-lit: var(--color-ink-raised);
+  --color-line-on-lit-soft: var(--color-ink);
+
+  /* --- Type ---------------------------------------------- */
+  --font-display: var(--font-bricolage), "Helvetica Neue", Helvetica, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* --- Rhythm -------------------------------------------- */
+  --spacing-section-xs: clamp(1.75rem, 1.4rem + 1.75vw, 3rem);
+  --spacing-section-sm: clamp(3rem, 2.4rem + 3vw, 5rem);
+  --spacing-section-md: clamp(4.5rem, 3.4rem + 5.5vw, 9rem);
+  --spacing-section-lg: clamp(6.5rem, 4.8rem + 8.5vw, 13rem);
+  --spacing-gutter: clamp(1.25rem, 0.9rem + 1.75vw, 3.5rem);
+
+  /* --- Motion -------------------------------------------- */
+  --duration-feedback: 150ms;
+  --duration-exit: 220ms;
+  --duration-enter: 380ms;
+  --duration-reveal: 900ms;
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  --animate-accordion-down: accordion-down var(--duration-enter) var(--ease-enter);
+  --animate-accordion-up: accordion-up var(--duration-exit) var(--ease-exit);
+
+  /* --- Radii & Shadows (D2C Wellness) -------------------- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-line);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-surface text-text-primary font-sans antialiased;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Focus: high contrast rings */
+  *:focus-visible {
+    outline: 2px solid var(--color-ember);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  .on-lit *:focus-visible,
+  .on-lit:focus-visible {
+    outline-color: var(--color-bone);
+  }
+
+  ::selection {
+    background: var(--color-ember);
+    color: var(--color-bone);
+  }
+
+  /* Prices, quantities, specs and timers use tabular figures so
+     they never shift when a value changes in place. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   TYPE SCALE
+   Display is set tight, with optical sizing and a negative
+   tracking that increases as the size grows. Body stays at a
+   readable 16px floor so iOS never zooms an input.
+   ============================================================ */
+@layer utilities {
+  .text-mega {
+    font-family: var(--font-display);
+    font-size: clamp(3.25rem, 1.6rem + 7.4vw, 9.5rem);
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+    font-variation-settings: "wdth" 100, "opsz" 48;
+  }
+
+  .text-display {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 1.6rem + 4vw, 5.25rem);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    font-weight: 500;
+    font-variation-settings: "wdth" 100, "opsz" 40;
+  }
+
+  .text-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 1.5rem + 2.2vw, 3.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+    font-variation-settings: "opsz" 32;
+  }
+
+  .text-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 1.28rem + 0.95vw, 2.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    font-variation-settings: "opsz" 24;
+  }
+
+  .text-h3 {
+    font-family: var(--font-sans);
+    font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
+    line-height: 1.22;
+    letter-spacing: -0.015em;
+    font-weight: 500;
+  }
+
+  .text-body-large {
+    font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+    line-height: 1.5;
+    letter-spacing: -0.011em;
+  }
+
+  .text-body {
+    font-size: 1rem;
+    line-height: 1.55;
+    letter-spacing: -0.006em;
+  }
+
+  .text-body-small {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .text-caption {
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    letter-spacing: 0.002em;
+  }
+
+  /* Monospace is reserved for values that are read as data:
+     prices, quantities, durations, SKUs, order numbers. */
+  .text-mono-caption {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .text-mono-numeric {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Prose measure. Serif-free, so hold under ~68ch. */
+  .measure {
+    max-width: 62ch;
+  }
+  .measure-tight {
+    max-width: 46ch;
+  }
+
+  /* Edge-to-edge break-out from a padded container. */
+  .full-bleed {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    max-width: 100vw;
+  }
+
+  /* A light "lit" island inside the dark environment. */
+  .on-lit {
+    background: var(--color-surface-lit);
+    color: var(--color-text-on-lit);
+    border-color: var(--color-line-on-lit);
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ============================================================
+   REVEAL
+   One orchestrated entrance per view, driven by CSS only —
+   no scroll listeners, no animation library, no per-section
+   fade-up. Elements are visible by default and only animate
+   when JS has confirmed support, so content never depends on
+   script execution to be readable.
+   ============================================================ */
+@layer utilities {
+  [data-reveal] {
+    opacity: 1;
+  }
+
+  html.js [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-y, 14px), 0);
+    transition:
+      opacity var(--duration-reveal) var(--ease-enter),
+      transform var(--duration-reveal) var(--ease-enter);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  html.js [data-reveal="in"] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
+  }
+
+  /* Stagger a row of children from one observed container.
+     Children of a horizontal scroller can never be observed directly:
+     the scroller's own overflow clips their intersection rect to zero
+     whenever they are scrolled out of it, so they would stay hidden.
+     Observing the container instead sidesteps that entirely. */
+  html.js [data-reveal-children] > * {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+    transition:
+      opacity var(--duration-reveal) var(--ease-enter),
+      transform var(--duration-reveal) var(--ease-enter);
+  }
+
+  html.js [data-reveal-children="in"] > * {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  html.js [data-reveal-children] > *:nth-child(2) {
+    transition-delay: 70ms;
+  }
+  html.js [data-reveal-children] > *:nth-child(3) {
+    transition-delay: 140ms;
+  }
+  html.js [data-reveal-children] > *:nth-child(4) {
+    transition-delay: 210ms;
+  }
+  html.js [data-reveal-children] > *:nth-child(n + 5) {
+    transition-delay: 280ms;
+  }
+
+  /* A wipe for large editorial imagery. The clip is applied to the
+     child, never the observed element — clipping the observed box to
+     zero would make IntersectionObserver report it as never visible,
+     and it could never unhide itself. */
+  html.js [data-wipe] > * {
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 1.1s var(--ease-enter);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  html.js [data-wipe="in"] > * {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal],
+  html.js [data-wipe],
+  html.js [data-wipe] > *,
+  html.js [data-reveal-children],
+  html.js [data-reveal-children] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  :root {
+    --animate-accordion-down: none;
+    --animate-accordion-up: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
 }
