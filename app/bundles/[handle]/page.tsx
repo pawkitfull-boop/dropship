@@ -146,8 +146,8 @@ export default async function BundlePage({ params }: { params: Promise<{ handle:
               steel roller for the face and neck. Five minutes covers all three.
             </p>
           </div>
-          <div className="flex flex-col justify-center bg-ink-raised px-gutter py-section-md md:px-14">
-            <h2 className="text-h2 mb-8 text-bone">What each one does.</h2>
+          <div className="flex flex-col justify-center bg-gray-50 px-gutter py-section-md md:px-14">
+            <h2 className="text-h2 mb-8 text-black">What each one does.</h2>
             <Accordion type="single" collapsible className="w-full">
               {products.map(({ product }, i) => (
                 product ? (

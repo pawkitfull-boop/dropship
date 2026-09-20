@@ -29,7 +29,7 @@ export function ProductBeforeAfter() {
   const [isDragging, setIsDragging] = React.useState(false)
 
   return (
-    <section className="bg-[#fcf8f3] px-gutter py-24 border-b border-gray-100">
+    <section className="bg-[#fcf8f3] px-gutter py-16 sm:py-24 border-b border-gray-100">
       <div className="mx-auto max-w-[88rem]">
         
         <motion.div 
@@ -39,7 +39,7 @@ export function ProductBeforeAfter() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <h2 className="text-[3rem] lg:text-[4.5rem] font-bold text-black leading-tight tracking-tight">
+          <h2 className="text-[2.25rem] sm:text-[3rem] lg:text-[4.5rem] font-bold text-black leading-tight tracking-tight">
             Proven transformations, trusted by <br className="hidden lg:block"/>
             <span className="text-orange-700">thousands</span>
           </h2>
@@ -53,9 +53,9 @@ export function ProductBeforeAfter() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-[#f4ebe1] rounded-[2rem] p-10 lg:p-16 flex flex-col justify-between"
+            className="bg-[#f4ebe1] rounded-[2rem] p-6 sm:p-10 lg:p-16 flex flex-col justify-between"
           >
-            <div className="flex gap-4 mb-20">
+            <div className="flex flex-wrap gap-3 sm:gap-4 mb-10 sm:mb-20">
               <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2 bg-white/60 px-4 py-2 rounded-full text-sm font-semibold text-orange-900 backdrop-blur-sm border border-white/40 cursor-default">
                 <ShieldCheck size={16} /> Clinical evidence
               </motion.div>
@@ -65,7 +65,7 @@ export function ProductBeforeAfter() {
             </div>
 
             <div>
-              <h3 className="text-[2.5rem] font-bold text-black mb-4 leading-tight">
+              <h3 className="text-[2rem] sm:text-[2.5rem] font-bold text-black mb-4 leading-tight">
                 Tangible Results
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed mb-8 max-w-[40ch]">
@@ -83,7 +83,7 @@ export function ProductBeforeAfter() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="relative bg-[#f4ebe1] rounded-[2rem] p-4 flex flex-col min-h-[500px] overflow-hidden group"
+            className="relative bg-[#f4ebe1] rounded-[2rem] p-4 flex flex-col min-h-[380px] sm:min-h-[500px] overflow-hidden group"
           >
             
             <motion.div 
@@ -91,15 +91,15 @@ export function ProductBeforeAfter() {
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.8 }}
-              className="absolute top-8 right-8 z-30 bg-white shadow-xl px-6 py-3 rounded-full flex items-center gap-4 cursor-default"
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 z-30 bg-white shadow-xl px-4 py-2 sm:px-6 sm:py-3 rounded-full flex items-center gap-2 sm:gap-4 cursor-default"
             >
-              <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">Your improvements</span>
-              <span className="text-2xl font-bold text-black">100%</span>
+              <span className="text-[10px] sm:text-sm font-bold text-gray-500 uppercase tracking-wider">Your improvements</span>
+              <span className="text-lg sm:text-2xl font-bold text-black">100%</span>
             </motion.div>
 
             <div 
               ref={containerRef}
-              className="relative w-full h-full rounded-2xl overflow-hidden cursor-ew-resize select-none flex-1"
+              className="relative w-full h-full rounded-2xl overflow-hidden cursor-ew-resize select-none flex-1 touch-pan-y"
               onMouseMove={isDragging ? handleMove : undefined}
               onMouseDown={(e) => { setIsDragging(true); handleMove(e); }}
               onMouseUp={() => setIsDragging(false)}

@@ -49,9 +49,9 @@ export function PageHeader({ title, lede, crumbs = [], meta, className }: PageHe
         </nav>
 
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <h1 className="text-display max-w-[16ch] text-bone">{title}</h1>
+          <h1 className="text-display max-w-[16ch] text-black">{title}</h1>
           {lede && (
-            <p className="measure-tight text-body-large text-text-secondary">{lede}</p>
+            <p className="measure-tight text-body-large text-gray-600">{lede}</p>
           )}
         </div>
 

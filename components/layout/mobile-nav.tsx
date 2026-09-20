@@ -78,11 +78,11 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
             >
               <Dialog.Title className="sr-only">Menu</Dialog.Title>
 
-              <div className="flex h-20 shrink-0 items-center justify-between border-b border-line px-gutter pt-[env(safe-area-inset-top,0px)]">
-                <span className="text-mono-caption text-text-muted">Menu</span>
+              <div className="flex h-20 shrink-0 items-center justify-between border-b border-white/15 px-gutter pt-[env(safe-area-inset-top,0px)]">
+                <span className="text-mono-caption text-gray-400">Menu</span>
                 <Dialog.Close asChild>
                   <button
-                    className="-mr-2.5 flex size-11 items-center justify-center text-text-primary transition-opacity hover:opacity-70"
+                    className="-mr-2.5 flex size-11 items-center justify-center text-white transition-opacity hover:opacity-70"
                     aria-label="Close menu"
                   >
                     <X size={22} strokeWidth={1.5} aria-hidden="true" />
@@ -91,26 +91,25 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
               </div>
 
               <div className="hide-scrollbar flex-1 overflow-y-auto overscroll-contain">
-                <nav aria-label="Primary" className="px-gutter pb-10 pt-8">
+                <nav aria-label="Primary" className="px-gutter pt-8 pb-[max(2.5rem,calc(env(safe-area-inset-bottom)+1.5rem))]">
                   {/* Primary destinations, set at display scale so the
                       menu has the same typographic voice as the site. */}
                   <ul className="flex flex-col">
                     {[
                       { href: "/products/pawkitfull-airdry-bag", label: "Shop Now" },
-                      { href: "/about", label: "Our story" },
                     ].map((l, i) => (
-                      <motion.li key={l.href} {...item(i)} className="border-b border-line-soft">
+                      <motion.li key={l.href} {...item(i)} className="border-b border-white/10">
                         <Link
                           href={l.href}
                           onClick={close}
-                          className="group flex items-center justify-between py-4 text-h2 text-text-primary"
+                          className="group flex items-center justify-between py-4 text-h2 text-white"
                         >
                           {l.label}
                           <ArrowRight
                             size={18}
                             strokeWidth={1.5}
                             aria-hidden="true"
-                            className="translate-x-0 text-text-muted transition-transform duration-[var(--duration-enter)] ease-[var(--ease-enter)] group-hover:translate-x-1"
+                            className="translate-x-0 text-gray-400 transition-transform duration-[var(--duration-enter)] ease-[var(--ease-enter)] group-hover:translate-x-1"
                           />
                         </Link>
                       </motion.li>
@@ -132,22 +131,22 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                         zoomOnHover
                       />
                       <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-deep/90 to-transparent p-5 pt-16">
-                        <p className="text-mono-caption mb-1.5 text-text-muted">Start here</p>
-                        <p className="text-h3 text-bone">Pawkitfull AirDry+</p>
-                        <p className="text-sm text-bone-muted mt-1">From $34.99</p>
+                        <p className="text-mono-caption mb-1.5 text-gray-300">Start here</p>
+                        <p className="text-h3 text-white">Pawkitfull AirDry+</p>
+                        <p className="text-sm text-gray-300 mt-1">From $39.99</p>
                       </div>
                     </Link>
                   </motion.div>
 
-                  <motion.div {...item(6)} className="mt-10 border-t border-line pt-8">
-                    <h2 className="text-mono-caption mb-4 text-text-muted">Support</h2>
+                  <motion.div {...item(6)} className="mt-10 border-t border-white/15 pt-8">
+                    <h2 className="text-mono-caption mb-4 text-gray-400">Support</h2>
                     <ul className="grid grid-cols-2 gap-x-4">
                       {SUPPORT.map((l) => (
                         <li key={l.href}>
                           <Link
                             href={l.href}
                             onClick={close}
-                            className="flex h-11 items-center text-body text-text-secondary transition-colors hover:text-text-primary"
+                            className="flex h-11 items-center text-body text-gray-300 transition-colors hover:text-white"
                           >
                             {l.label}
                           </Link>

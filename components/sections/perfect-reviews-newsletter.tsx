@@ -74,10 +74,10 @@ export function PerfectReviewsNewsletter() {
         </div>
 
         {/* Newsletter Pill Bar */}
-        <div className="w-full max-w-6xl bg-black rounded-full p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mt-8 shadow-2xl relative">
+        <div className="w-full max-w-6xl bg-black rounded-3xl md:rounded-full p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mt-8 shadow-2xl relative">
           
           {/* Claim Off Badge */}
-          <div className="absolute -left-6 -bottom-6 flex size-[100px] items-center justify-center rounded-full bg-black text-white font-bold text-center leading-tight shadow-xl border-4 border-white">
+          <div className="absolute -left-6 -bottom-6 hidden size-[100px] items-center justify-center rounded-full bg-black text-white font-bold text-center leading-tight shadow-xl border-4 border-white md:flex">
             <span className="text-lg">Claim<br/>15% Off</span>
           </div>
 
@@ -97,12 +97,12 @@ export function PerfectReviewsNewsletter() {
             <input 
               type="email" 
               placeholder="email@example.com" 
-              className="flex-1 bg-transparent text-white px-6 py-3 outline-none placeholder:text-gray-500 text-sm"
+              className="w-full min-w-0 flex-1 bg-transparent text-white px-5 sm:px-6 py-3 outline-none placeholder:text-gray-500 text-base sm:text-sm"
               required
             />
             <button 
               type="submit" 
-              className="flex h-12 items-center justify-center gap-2 rounded-full bg-[#00c881] px-6 text-sm font-bold text-white transition-colors hover:bg-[#00a66b]"
+              className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-[#00c881] px-5 sm:px-6 text-sm font-bold text-white transition-colors hover:bg-[#00a66b]"
             >
               SUBMIT
               <ArrowRightCircle size={18} fill="white" className="text-[#00c881]" />

@@ -70,7 +70,7 @@ export default function FAQPage() {
 
           <div className="flex flex-col gap-6 border-t border-line pt-10 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="text-h2 text-bone">Still stuck?</h2>
+              <h2 className="text-h2 text-black">Still stuck?</h2>
               <p className="mt-3 text-body text-text-secondary">
                 Write to us. We aim to reply within{" "}
                 {storeDetails.supportResponseTime || "24 hours"}.
@@ -78,7 +78,7 @@ export default function FAQPage() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex h-[52px] shrink-0 items-center justify-center border border-line px-7 text-body text-text-primary transition-colors hover:border-bone hover:bg-bone hover:text-ink"
+              className="inline-flex h-[52px] shrink-0 items-center justify-center rounded-full border border-gray-300 px-7 text-body font-medium text-black transition-colors hover:border-black hover:bg-black hover:text-white"
             >
               Contact support
             </Link>

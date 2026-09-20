@@ -111,6 +111,12 @@
     border-color: var(--color-line);
   }
 
+  :root {
+    /* Measured and kept current by the Header. This is the pre-JS
+       fallback: banner + main bar at their mobile heights. */
+    --header-h: 104px;
+  }
+
   html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;

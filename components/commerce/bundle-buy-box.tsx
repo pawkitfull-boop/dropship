@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { useCart } from "@/lib/commerce/cart-context"
-import { Product, ProductVariant } from "@/lib/commerce/types"
+import { Product } from "@/lib/commerce/types"
 import { useCurrency } from "@/lib/commerce/currency-context"
 import { motion, AnimatePresence } from "framer-motion"
 import { ShoppingCart, Truck, PackageCheck, ShieldCheck } from "lucide-react"
@@ -144,25 +144,25 @@ export function BundleBuyBox({ product }: BundleBuyBoxProps) {
                 </div>
               )}
 
-              <div className="p-4">
+              <div className={`p-4 ${key === "trio" ? "pt-7" : ""}`}>
                 <div className="flex items-center justify-between mb-1">
-                  <div className="flex items-center gap-3">
+                  <div className="flex min-w-0 items-center gap-3">
                     {/* Custom Radio */}
                     <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${isSelected ? "border-black" : "border-gray-300"}`}>
                       {isSelected && <div className="w-2.5 h-2.5 bg-black rounded-full"></div>}
                     </div>
                     
-                    <div className="flex items-center gap-2">
+                    <div className="flex min-w-0 flex-wrap items-center gap-2">
                       <span className="font-bold text-lg text-black">{bundle.title}</span>
                       {bundle.badge && (
-                        <span className="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
+                        <span className="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide whitespace-nowrap">
                           {bundle.badge}
                         </span>
                       )}
                     </div>
                   </div>
 
-                  <div className="text-right">
+                  <div className="shrink-0 pl-3 text-right">
                     <div className="font-bold text-lg text-black">{money(bundle.price)}</div>
                     {bundle.originalPrice > bundle.price && (
                       <div className="text-sm text-gray-400 line-through">{money(bundle.originalPrice)}</div>
@@ -192,7 +192,7 @@ export function BundleBuyBox({ product }: BundleBuyBoxProps) {
                               {bundle.quantity > 1 ? `Bag ${idx + 1} Size` : `Select Size`}
                             </label>
                             <select 
-                              className="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-black focus:border-black block p-2.5 font-medium outline-none"
+                              className="w-full bg-white border border-gray-300 text-gray-900 text-base sm:text-sm rounded-lg focus:ring-black focus:border-black block p-2.5 font-medium outline-none"
                               value={selections[idx]}
                               onChange={(e) => handleVariantChange(idx, e.target.value)}
                             >

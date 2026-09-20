@@ -44,7 +44,7 @@ export function SearchClient({ initialQuery, initialResults, popularProducts }: 
     <>
       <section className="border-b border-line bg-surface-deep">
         <div className="mx-auto max-w-[88rem] px-gutter pb-10 pt-10 md:pt-14">
-          <h1 className="text-display mb-8 text-bone">Search</h1>
+          <h1 className="text-display mb-8 text-black">Search</h1>
           <form className="relative flex items-center" onSubmit={(e) => {
             e.preventDefault()
             const params = new URLSearchParams(searchParams.toString())
@@ -68,7 +68,7 @@ export function SearchClient({ initialQuery, initialResults, popularProducts }: 
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Mat, roller, neck…"
               autoComplete="off"
-              className="text-h2 w-full border-b border-line bg-transparent py-4 pl-9 pr-4 text-text-primary transition-colors placeholder:text-text-muted hover:border-text-muted focus:border-bone"
+              className="text-h2 w-full border-b border-line bg-transparent py-4 pl-9 pr-4 text-text-primary transition-colors placeholder:text-text-muted hover:border-text-muted focus:border-black"
             />
           </form>
         </div>
@@ -78,7 +78,7 @@ export function SearchClient({ initialQuery, initialResults, popularProducts }: 
         {!hasSearched ? (
           <div className="space-y-16">
             <div className="max-w-md">
-              <h2 className="text-h2 text-bone">Start with a word.</h2>
+              <h2 className="text-h2 text-black">Start with a word.</h2>
               <p className="mt-3 text-body text-text-secondary">
                 Try a tool, or the part of the body you want to work on.
               </p>
@@ -108,7 +108,7 @@ export function SearchClient({ initialQuery, initialResults, popularProducts }: 
         ) : (
           <div className="space-y-16">
             <div className="max-w-md pt-4">
-              <h2 className="text-h2 text-bone">Nothing matched that.</h2>
+              <h2 className="text-h2 text-black">Nothing matched that.</h2>
               <p className="mt-3 text-body text-text-secondary">
                 We couldn&apos;t find anything matching &quot;{initialQuery}&quot;. Try a different term, or browse our popular tools below.
               </p>

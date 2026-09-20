@@ -17,10 +17,17 @@ export function PerfectHero() {
           className="object-cover absolute inset-0 size-full object-[70%_center] md:object-center"
           priority
         />
+        {/* On phones the copy sits directly on the photo with far less room
+            to the left than on desktop, so it gets a scrim to stay legible. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/45 to-transparent lg:hidden"
+        />
       </div>
 
-      {/* Explicit height so it perfectly fits above the fold alongside the header */}
-      <div className="relative z-10 mx-auto flex max-w-[88rem] flex-col justify-center px-gutter py-16 lg:py-0 lg:pl-12 xl:pl-24 h-[calc(100vh-175px)] min-h-[500px] xl:min-h-[600px]">
+      {/* Sits exactly below the header. dvh (not vh) so the mobile browser
+          chrome collapsing doesn't leave the CTA hanging off-screen. */}
+      <div className="relative z-10 mx-auto flex max-w-[88rem] flex-col justify-center px-gutter py-16 lg:py-0 lg:pl-12 xl:pl-24 h-[calc(100dvh_-_var(--header-h,104px))] min-h-[520px] xl:min-h-[600px]">
         
         {/* Content Box (Constrained width so it stays on the left) */}
         <div className="flex flex-col max-w-xl">
@@ -35,11 +42,11 @@ export function PerfectHero() {
             </span>
           </div>
 
-          <h1 className="text-[3.5rem] leading-[1.1] font-bold text-black mb-6 md:text-[4.5rem] max-w-[12ch] drop-shadow-sm">
+          <h1 className="text-[2.75rem] leading-[1.1] font-bold text-black mb-6 sm:text-[3.5rem] md:text-[4.5rem] max-w-[12ch] drop-shadow-sm">
             Dry your dog in minutes, not hours.
           </h1>
-          
-          <p className="text-lg text-gray-800 mb-8 max-w-[40ch] drop-shadow-sm">
+
+          <p className="text-base sm:text-lg text-gray-800 mb-8 max-w-[40ch] drop-shadow-sm">
             The portable, foldable blow dryer bag that turns bath time from a chore into a breeze. Fast, safe, and stress-free.
           </p>
 

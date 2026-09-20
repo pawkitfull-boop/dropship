@@ -51,7 +51,7 @@ export function ProductFeaturesCross() {
   }
 
   return (
-    <section className="bg-white px-gutter py-24 border-b border-gray-100 overflow-hidden">
+    <section className="bg-white px-gutter py-16 sm:py-24 border-b border-gray-100 overflow-hidden">
       <div className="mx-auto max-w-[88rem]">
         
         <motion.div 
@@ -59,9 +59,9 @@ export function ProductFeaturesCross() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
-          <h2 className="text-[3rem] lg:text-[4.5rem] font-bold text-black leading-tight tracking-tight max-w-[20ch] mx-auto">
+          <h2 className="text-[2.25rem] sm:text-[3rem] lg:text-[4.5rem] font-bold text-black leading-tight tracking-tight max-w-[20ch] mx-auto">
             Smooth Drying for <span className="text-green-700">Every Breed</span>
           </h2>
           <p className="mt-4 text-lg text-gray-500 max-w-[40ch] mx-auto">
@@ -77,7 +77,7 @@ export function ProductFeaturesCross() {
           className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
         >
           {features.map((feature, i) => (
-            <motion.div key={i} variants={blockVariants} className="bg-green-50/50 p-8 rounded-2xl border border-green-100/50 transform transition-transform hover:-translate-y-1 h-full">
+            <motion.div key={i} variants={blockVariants} className="bg-green-50/50 p-6 sm:p-8 rounded-2xl border border-green-100/50 transform transition-transform hover:-translate-y-1 h-full">
               <div className="bg-white size-12 rounded-full flex items-center justify-center shadow-sm mb-6 text-green-700">
                 {feature.icon}
               </div>

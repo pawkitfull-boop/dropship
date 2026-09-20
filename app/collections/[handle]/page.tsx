@@ -121,9 +121,9 @@ export default async function CollectionPage({
 
         <div className="flex min-w-0 flex-1 flex-col">
           {/* Mobile filter bar */}
-          <div className="sticky top-16 z-30 border-b border-line bg-ink/90 px-gutter py-3 backdrop-blur-xl md:hidden">
+          <div className="sticky top-[var(--header-h,104px)] z-30 border-b border-line bg-white/95 px-gutter py-3 backdrop-blur-xl md:hidden">
             <div className="flex items-center justify-between">
-              <span className="text-caption text-text-secondary">
+              <span className="text-caption font-medium text-gray-500">
                 {collectionProducts.length}{" "}
                 {collectionProducts.length === 1 ? "product" : "products"}
               </span>
@@ -157,22 +157,22 @@ export default async function CollectionPage({
               </div>
             ) : (
               <div className="mx-auto max-w-md py-24 text-center">
-                <h2 className="text-h2 mb-3 text-bone">Nothing matches that.</h2>
-                <p className="text-body text-text-secondary">
+                <h2 className="text-h2 mb-3 text-black">Nothing matches that.</h2>
+                <p className="text-body text-gray-600">
                   Try removing a filter, or browse the full collection.
                 </p>
                 <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
                   {hasActiveFilters && (
                     <Link
                       href={`/collections/${collection.handle}`}
-                      className="inline-flex h-11 items-center justify-center border border-line px-6 text-body-small text-text-secondary transition-colors hover:border-bone hover:text-text-primary"
+                      className="inline-flex h-11 items-center justify-center rounded-full border border-gray-300 px-6 text-body-small font-medium text-gray-700 transition-colors hover:border-black hover:text-black"
                     >
                       Clear filters
                     </Link>
                   )}
                   <Link
                     href="/collections/shop-all"
-                    className="inline-flex h-11 items-center justify-center bg-bone px-6 text-body-small text-ink transition-colors hover:bg-paper"
+                    className="inline-flex h-11 items-center justify-center rounded-full bg-black px-6 text-body-small font-medium text-white transition-colors hover:bg-gray-900"
                   >
                     Shop all
                   </Link>

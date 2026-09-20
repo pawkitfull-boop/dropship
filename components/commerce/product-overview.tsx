@@ -20,6 +20,31 @@ export function ProductOverview({ product }: { product: Product }) {
     setActiveImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length)
   }
 
+  // Swipe between images on touch devices. Tracked manually rather than with
+  // a drag library so a vertical scroll that starts on the image still scrolls
+  // the page — only a clearly horizontal gesture changes the slide.
+  const touchStart = React.useRef<{ x: number; y: number } | null>(null)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0]
+    touchStart.current = { x: t.clientX, y: t.clientY }
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current
+    if (!start) return
+    touchStart.current = null
+
+    const t = e.changedTouches[0]
+    const dx = t.clientX - start.x
+    const dy = t.clientY - start.y
+
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) nextImage()
+      else prevImage()
+    }
+  }
+
   const staggerContainer = {
     hidden: { opacity: 0 },
     show: {
@@ -46,7 +71,11 @@ export function ProductOverview({ product }: { product: Product }) {
         >
           
           {/* Main Image */}
-          <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-[#e6bfa5]">
+          <div
+            className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-[#e6bfa5] touch-pan-y"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeImageIndex}
@@ -71,7 +100,7 @@ export function ProductOverview({ product }: { product: Product }) {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-gray-500 shadow-md hover:bg-white transition-colors z-10"
+              className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 size-11 sm:size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-gray-500 shadow-md hover:bg-white transition-colors z-10"
             >
               <ArrowLeft size={20} strokeWidth={2} />
             </motion.button>
@@ -79,21 +108,23 @@ export function ProductOverview({ product }: { product: Product }) {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-gray-500 shadow-md hover:bg-white transition-colors z-10"
+              className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 size-11 sm:size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-gray-500 shadow-md hover:bg-white transition-colors z-10"
             >
               <ArrowRight size={20} strokeWidth={2} />
             </motion.button>
           </div>
 
-          {/* Thumbnails */}
-          <div className="flex gap-4 mt-2">
+          {/* Thumbnails. Five at 80px overflow a phone, so the row scrolls
+              rather than clipping the last thumbnails out of reach. */}
+          <div className="hide-scrollbar -mx-1 mt-2 flex gap-3 overflow-x-auto px-1 sm:gap-4">
             {product.images.slice(0, 5).map((image, index) => (
               <motion.button
                 key={index}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveImageIndex(index)}
-                className={`relative w-20 aspect-square rounded-xl overflow-hidden border-2 transition-all ${
+                aria-label={`Show image ${index + 1}`}
+                className={`relative w-16 shrink-0 aspect-square rounded-xl overflow-hidden border-2 transition-all sm:w-20 ${
                   activeImageIndex === index ? 'border-blue-400 opacity-100' : 'border-transparent opacity-60 hover:opacity-100'
                 }`}
               >
@@ -118,7 +149,7 @@ export function ProductOverview({ product }: { product: Product }) {
         >
           
           {/* Pills */}
-          <motion.div variants={staggerItem} className="flex gap-3 mb-6">
+          <motion.div variants={staggerItem} className="flex flex-wrap gap-3 mb-6">
             <div className="bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-2">
               <div className="size-1.5 bg-blue-500 rounded-full"></div>
               Pet Drying Bag

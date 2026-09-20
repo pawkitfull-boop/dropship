@@ -25,7 +25,7 @@ export default function GuaranteePage() {
             />
           </div>
 
-          <div className="bg-ink-raised p-8 md:p-12 border border-line text-left space-y-6 max-w-2xl mx-auto">
+          <div className="bg-gray-50 p-8 md:p-12 rounded-2xl border border-gray-200 text-left space-y-6 max-w-2xl mx-auto">
             <h2 className="text-h2">Our Promise</h2>
             <p className="text-body-large">
               If you do not feel a distinct, grounding shift in your physical tension after {storeDetails.returnsWindowDays} days of consistent use, we do not want your money.
@@ -36,7 +36,7 @@ export default function GuaranteePage() {
             <div className="pt-8">
               <Link
                 href="/collections/shop-all"
-                className="inline-flex h-[52px] w-full items-center justify-center bg-bone px-8 text-body font-medium text-ink transition-colors hover:bg-paper sm:w-auto"
+                className="inline-flex h-[52px] w-full items-center justify-center rounded-full bg-black px-8 text-body font-medium text-white transition-colors hover:bg-gray-900 sm:w-auto"
               >
                 Shop the tools
               </Link>

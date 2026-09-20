@@ -17,7 +17,6 @@ const SUPPORT = [
 ]
 
 const COMPANY = [
-  { href: "/about", label: "Our story" },
   { href: "/policies/terms", label: "Terms" },
   { href: "/policies/privacy", label: "Privacy Policy" },
 ]

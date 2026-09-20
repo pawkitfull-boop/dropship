@@ -41,7 +41,7 @@ export default function ReturnsPolicy() {
 
           <div className="space-y-6">
             <h2 className="text-h2">How to Start a Return</h2>
-            <div className="bg-ink-raised p-6 border border-line space-y-4">
+            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200 space-y-4">
               <ol className="list-decimal list-inside text-body space-y-2">
                 <li>Email {storeDetails.supportEmail ? <a href={`mailto:${storeDetails.supportEmail}`} className="underline hover:text-text-primary">{storeDetails.supportEmail}</a> : "support"} with your order number.</li>
                 <li>We will approve the request within {storeDetails.supportResponseTime || "1-2 business days"} and send you instructions.</li>

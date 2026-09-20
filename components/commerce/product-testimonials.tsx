@@ -51,7 +51,7 @@ export function ProductTestimonials() {
   }
 
   return (
-    <section className="bg-[#fcf8f3] px-gutter py-24 border-b border-gray-100 overflow-hidden">
+    <section className="bg-[#fcf8f3] px-gutter py-16 sm:py-24 border-b border-gray-100 overflow-hidden">
       <div className="mx-auto max-w-[88rem]">
         
         <motion.div 
@@ -59,9 +59,9 @@ export function ProductTestimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10 sm:mb-16"
         >
-          <h2 className="text-[3rem] lg:text-[4.5rem] font-bold text-black leading-tight tracking-tight">
+          <h2 className="text-[2.25rem] sm:text-[3rem] lg:text-[4.5rem] font-bold text-black leading-tight tracking-tight">
             Visible Results <span className="text-gray-400 font-normal">Real people</span>
           </h2>
         </motion.div>
@@ -76,7 +76,7 @@ export function ProductTestimonials() {
             visible: { transition: { staggerChildren: 0.15 } }
           }}
           ref={scrollRef}
-          className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing"
+          className="flex gap-5 sm:gap-8 overflow-x-auto pb-12 snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {testimonials.map((testimonial, index) => (
@@ -86,7 +86,7 @@ export function ProductTestimonials() {
                 visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
               }}
               key={index} 
-              className="snap-start shrink-0 w-[350px] md:w-[400px] bg-white rounded-3xl p-10 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow"
+              className="snap-start shrink-0 w-[85vw] max-w-[350px] md:w-[400px] md:max-w-none bg-white rounded-3xl p-7 sm:p-10 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow"
             >
               <div>
                 <div className="mb-8 relative size-16 rounded-full border border-gray-200 text-gray-400 flex items-center justify-center font-bold text-xl shadow-sm uppercase shrink-0">

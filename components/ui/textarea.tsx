@@ -12,7 +12,9 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <textarea
         className={cn(
-          "flex min-h-[80px] w-full rounded-lg border-2 bg-transparent px-4 py-3 text-body-small transition-colors",
+          // 16px on phones: anything smaller makes iOS zoom the page on focus.
+          // From sm up this is exactly the old text-body-small (14px / 1.5).
+          "flex min-h-[80px] w-full rounded-lg border-2 bg-transparent px-4 py-3 text-base sm:text-[0.875rem]/[1.5] transition-colors",
           "border-line text-text-primary placeholder:text-text-muted",
           "hover:border-ink focus:border-ember",
           "[.on-lit_&]:border-line-on-lit [.on-lit_&]:text-text-on-lit [.on-lit_&]:placeholder:text-text-on-lit-muted",

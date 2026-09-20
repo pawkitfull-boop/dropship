@@ -91,7 +91,7 @@ export default function GuideDownloadPage() {
                 <h2 className="text-h2">The Shift <span className="text-body text-text-muted ml-2 font-normal">(1:00 - 3:00)</span></h2>
               </div>
               <p className="text-body-large">As you hit the one-minute mark, the initial sharpness will recede, replaced by a distinct, spreading warmth across your back and neck. This is the physiological shift.</p>
-              <div className="bg-ink-raised p-8 border border-line mt-6">
+              <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 mt-6">
                 <h3 className="text-mono-caption uppercase tracking-wide mb-3">The Action</h3>
                 <p className="text-body">If you have the Heated Neck & Shoulder Wrap, place it across your chest (not your neck, as the pillow is there). The heavy, grounding weight acts as a physical anchor. Let your arms fall to your sides, palms facing the ceiling. Keep your eyes closed.</p>
               </div>

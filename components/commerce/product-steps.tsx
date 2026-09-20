@@ -42,7 +42,7 @@ export function ProductSteps() {
   }
 
   return (
-    <section className="bg-white px-gutter py-24 border-b border-gray-100 overflow-hidden">
+    <section className="bg-white px-gutter py-16 sm:py-24 border-b border-gray-100 overflow-hidden">
       <div className="mx-auto max-w-[88rem]">
         
         <motion.div 
@@ -50,9 +50,9 @@ export function ProductSteps() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
-          <h2 className="text-[2.5rem] lg:text-[4rem] font-bold text-black leading-tight tracking-tight">
+          <h2 className="text-[2rem] sm:text-[2.5rem] lg:text-[4rem] font-bold text-black leading-tight tracking-tight">
             How It Works: <span className="text-gray-400 font-normal">Just 3<br/>Simple Steps</span>
           </h2>
           {/* Decorative dotted line */}
