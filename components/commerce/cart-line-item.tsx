@@ -8,8 +8,16 @@ import { useCart, CartItem } from "@/lib/commerce/cart-context"
 import { useCurrency } from "@/lib/commerce/currency-context"
 
 export function CartLineItem({ item }: { item: CartItem }) {
-  const { updateQuantity, removeItem } = useCart()
+  const { updateQuantity, removeItem, cartCount } = useCart()
   const { money } = useCurrency()
+
+  const rawLineTotal = item.price * item.quantity
+  let discountedLineTotal = rawLineTotal
+  if (cartCount === 2) {
+    discountedLineTotal = rawLineTotal * 0.75
+  } else if (cartCount >= 3) {
+    discountedLineTotal = rawLineTotal * 0.66666
+  }
 
   return (
     <div className="flex gap-4 border-b-2 border-gray-100 pb-6 last:border-0 last:pb-0">
@@ -26,7 +34,16 @@ export function CartLineItem({ item }: { item: CartItem }) {
           <Link href={`/products/${item.productHandle}`} className="text-base font-bold text-black transition-opacity hover:opacity-70 line-clamp-2">
             {item.productTitle}
           </Link>
-          <span className="shrink-0 text-base font-bold text-black tabular-nums">{money(item.price * item.quantity)}</span>
+          <div className="flex flex-col items-end shrink-0">
+            {discountedLineTotal < rawLineTotal ? (
+              <>
+                <span className="text-xs text-gray-400 line-through tabular-nums">{money(rawLineTotal)}</span>
+                <span className="text-base font-bold text-red-600 tabular-nums">{money(discountedLineTotal)}</span>
+              </>
+            ) : (
+              <span className="text-base font-bold text-black tabular-nums">{money(rawLineTotal)}</span>
+            )}
+          </div>
         </div>
         
         {item.variantTitle !== "Default Title" && (
