@@ -27,7 +27,7 @@ export function PerfectHero() {
 
       {/* Sits exactly below the header. dvh (not vh) so the mobile browser
           chrome collapsing doesn't leave the CTA hanging off-screen. */}
-      <div className="relative z-10 mx-auto flex max-w-[88rem] flex-col justify-start lg:justify-center px-gutter py-16 lg:py-0 lg:pl-12 xl:pl-24 h-[calc(100dvh_-_var(--header-h,104px))] min-h-[520px] xl:min-h-[600px]">
+      <div className="relative z-10 mx-auto flex max-w-[88rem] flex-col justify-center px-gutter py-16 lg:py-0 lg:pl-12 xl:pl-24 h-[calc(100dvh_-_var(--header-h,104px))] min-h-[520px] xl:min-h-[600px]">
         
         {/* Content Box (Constrained width so it stays on the left) */}
         <div className="flex flex-col max-w-xl">
