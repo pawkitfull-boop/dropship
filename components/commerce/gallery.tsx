@@ -79,7 +79,7 @@ export function Gallery({ images }: { images: ImageAsset[] }) {
                 alt={image.altText || `Product image ${i + 1}`}
                 aspectRatio="auto"
                 preload={i === 0}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain bg-white"
               />
             </div>
           ))}
@@ -136,7 +136,7 @@ export function Gallery({ images }: { images: ImageAsset[] }) {
               src={image.url}
               alt=""
               aspectRatio="auto"
-              className={cn("transition-opacity", selectedIndex === i ? "opacity-100" : "opacity-55 hover:opacity-85")}
+              className={cn("w-full h-full object-contain bg-white transition-opacity", selectedIndex === i ? "opacity-100" : "opacity-55 hover:opacity-85")}
             />
           </button>
         ))}
