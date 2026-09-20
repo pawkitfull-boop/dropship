@@ -48,9 +48,9 @@ export function ConsentBanner() {
           className="fixed inset-x-0 bottom-0 z-[60] border-t border-line bg-ink-deep/95 px-4 py-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] backdrop-blur-md sm:px-6 md:py-4 md:pb-4"
         >
           <div className="mx-auto flex max-w-[88rem] flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-body-small text-text-secondary">
+            <p className="text-body-small text-bone/80">
               We use cookies to improve your experience and personalize our marketing.{" "}
-              <a href="/policies/privacy" className="underline underline-offset-2 transition-colors hover:text-bone">
+              <a href="/policies/privacy" className="text-bone underline underline-offset-2 transition-colors hover:text-white">
                 Learn more
               </a>
               .
@@ -58,13 +58,13 @@ export function ConsentBanner() {
             <div className="flex shrink-0 items-center gap-2">
               <button 
                 onClick={() => handleConsent(false)}
-                className="h-9 px-4 text-body-small font-medium text-text-secondary transition-colors hover:text-bone"
+                className="h-9 px-4 text-body-small font-medium text-bone/70 transition-colors hover:text-white"
               >
                 Decline
               </button>
               <button 
                 onClick={() => handleConsent(true)}
-                className="inline-flex h-9 items-center justify-center rounded-full bg-bone px-6 text-body-small font-medium text-ink transition-colors hover:bg-paper"
+                className="inline-flex h-9 items-center justify-center rounded-full bg-bone px-6 text-body-small font-medium text-ink transition-colors hover:bg-white"
               >
                 Accept All
               </button>
