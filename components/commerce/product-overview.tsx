@@ -180,6 +180,33 @@ export function ProductOverview({ product }: { product: Product }) {
           {/* Accordion */}
           <motion.div variants={staggerItem} className="mt-12">
             <Accordion.Root type="single" collapsible className="w-full" defaultValue="item-1">
+              
+              {product.faqs && product.faqs.length > 0 && (
+                <Accordion.Item value="faq" className="border-t border-gray-200">
+                  <Accordion.Header className="flex">
+                    <Accordion.Trigger className="group flex flex-1 items-center justify-between py-6 text-left text-lg font-bold text-black transition-all">
+                      Frequently Asked Questions
+                      <div className="text-black group-data-[state=open]:hidden">
+                        <Plus size={20} strokeWidth={2} />
+                      </div>
+                      <div className="text-black hidden group-data-[state=open]:block">
+                        <Minus size={20} strokeWidth={2} />
+                      </div>
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="overflow-hidden text-sm text-gray-500 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                    <div className="pb-6 space-y-6">
+                      {product.faqs.map((faq, index) => (
+                        <div key={index}>
+                          <h4 className="font-bold text-black mb-1">{faq.question}</h4>
+                          <p className="leading-relaxed">{faq.answer}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </Accordion.Content>
+                </Accordion.Item>
+              )}
+
               <Accordion.Item value="item-1" className="border-t border-gray-200">
                 <Accordion.Header className="flex">
                   <Accordion.Trigger className="group flex flex-1 items-center justify-between py-6 text-left text-lg font-bold text-black transition-all">
@@ -241,27 +268,6 @@ export function ProductOverview({ product }: { product: Product }) {
                   </div>
                 </Accordion.Content>
               </Accordion.Item>
-
-              {product.faqs?.map((faq, index) => (
-                <Accordion.Item key={`faq-${index}`} value={`faq-${index}`} className="border-t border-gray-200 last:border-b">
-                  <Accordion.Header className="flex">
-                    <Accordion.Trigger className="group flex flex-1 items-center justify-between py-6 text-left text-lg font-bold text-black transition-all">
-                      {faq.question}
-                      <div className="text-black group-data-[state=open]:hidden">
-                        <Plus size={20} strokeWidth={2} />
-                      </div>
-                      <div className="text-black hidden group-data-[state=open]:block">
-                        <Minus size={20} strokeWidth={2} />
-                      </div>
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content className="overflow-hidden text-sm text-gray-500 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                    <div className="pb-6 leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  </Accordion.Content>
-                </Accordion.Item>
-              ))}
             </Accordion.Root>
           </motion.div>
           
