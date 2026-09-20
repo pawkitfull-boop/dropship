@@ -14,7 +14,7 @@ import { RouteFocus } from "@/components/layout/route-focus";
 import { RevealOrchestrator } from "@/components/layout/reveal";
 import { CartProvider } from "@/lib/commerce/cart-context";
 import { CartDrawer } from "@/components/commerce/cart-drawer";
-import { NewsletterModal } from "@/components/marketing/newsletter-modal";
+
 import { ConsentBanner } from "@/components/marketing/consent-banner";
 import { AnalyticsQA } from "@/components/marketing/analytics-qa";
 import { UtmTracker } from "@/lib/analytics/utm";
@@ -161,7 +161,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <CartDrawer />
-          <NewsletterModal />
+
         </CartProvider>
         
         <ConsentBanner />
