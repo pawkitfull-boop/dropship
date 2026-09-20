@@ -32,7 +32,7 @@ const REVIEWS = [
 
 export function PerfectReviews() {
   return (
-    <section className="w-full bg-white px-gutter py-16 md:py-24 overflow-hidden relative border-t-[16px] border-[#cde4f0]">
+    <section className="w-full bg-white px-gutter py-16 md:py-24 overflow-hidden relative">
       <div className="mx-auto max-w-[88rem] flex flex-col items-center">
         
         {/* Reviews Header */}
