@@ -9,6 +9,7 @@ import * as Accordion from "@radix-ui/react-accordion"
 import { useCart } from "@/lib/commerce/cart-context"
 import { trackEvent } from "@/lib/analytics/core"
 import { motion, AnimatePresence } from "framer-motion"
+import { FlashSaleTimer } from "./flash-sale-timer"
 
 export function ProductOverview({ product }: { product: Product }) {
   const [selectedVariantId, setSelectedVariantId] = React.useState(product.variants[0]?.id)
@@ -162,6 +163,7 @@ export function ProductOverview({ product }: { product: Product }) {
               {[...Array(5)].map((_, i) => (
                 <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               ))}
+            </div>
             <span className="text-gray-800 text-sm font-semibold">
               4.8 Stars <span className="font-normal text-gray-500 ml-1">| 472 reviews</span>
             </span>
@@ -190,6 +192,11 @@ export function ProductOverview({ product }: { product: Product }) {
               </div>
               Pet-Friendly
             </div>
+          </motion.div>
+
+          {/* Timer */}
+          <motion.div variants={staggerItem}>
+            <FlashSaleTimer />
           </motion.div>
 
           {/* Variants */}

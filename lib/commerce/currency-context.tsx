@@ -66,10 +66,10 @@ export function CurrencyProvider({ children, initialCurrency }: { children: Reac
     try {
       const saved = localStorage.getItem("preferred_currency") as CurrencyCode
       if (saved) {
-        setCurrencyState(saved)
+        setTimeout(() => setCurrencyState(saved), 0)
       } else if (initialCurrency) {
         // If no localStorage but middleware passed one, use it
-        setCurrencyState(initialCurrency)
+        setTimeout(() => setCurrencyState(initialCurrency), 0)
       }
     } catch (e) {
       // Ignore
