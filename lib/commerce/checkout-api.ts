@@ -3,14 +3,28 @@ import { CartItem } from "./cart-context"
 // ... existing code ...
 
 export async function createCheckout(items: CartItem[]): Promise<string> {
-  // Simulate network latency
-  await new Promise(resolve => setTimeout(resolve, 800))
-  
   if (items.length === 0) {
     throw new Error("Cart is empty")
   }
+
+  const response = await fetch("/api/checkout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ items }),
+  })
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}))
+    throw new Error(errorData.error || "Failed to create checkout session")
+  }
+
+  const data = await response.json()
   
-  // In a real implementation, this would call Shopify/Stripe to generate a checkout session
-  // and return the URL. Here we return a mock URL.
-  return "https://checkout.the10minutereset.com/c/mock-session"
+  if (!data.url) {
+    throw new Error("No checkout URL returned")
+  }
+
+  return data.url
 }
