@@ -1,10 +1,6 @@
 "use client"
 
 import * as React from "react"
-// Note: We cannot export metadata from a 'use client' file.
-// Let's create a layout.tsx instead, or move the 'use client' out.
-// Let's actually remove 'use client' if possible, or just skip metadata here and rely on robots.txt.
-// Let's just rely on robots.txt.
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Skeleton } from "@/components/ui/skeleton"

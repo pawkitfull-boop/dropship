@@ -150,8 +150,8 @@ export function ProductOverview({ product }: { product: Product }) {
               <div className="size-1.5 bg-white rounded-full"></div>
               Pet Drying Bag
             </div>
-            <div className="bg-gray-100 text-gray-500 px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2">
-              <div className="size-1.5 bg-gray-400 rounded-full"></div>
+            <div className="bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-sm">
+              <div className="size-1.5 bg-white rounded-full animate-pulse"></div>
               HOT
             </div>
           </motion.div>
@@ -163,7 +163,7 @@ export function ProductOverview({ product }: { product: Product }) {
                 <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               ))}
             </div>
-            <span className="text-gray-400 text-sm font-medium">4.8 Stars</span>
+            <span className="text-gray-800 text-sm font-semibold">4.8 Stars</span>
           </motion.div>
 
           {/* Title & Subtitle */}
