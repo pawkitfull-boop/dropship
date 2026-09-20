@@ -148,7 +148,7 @@ export function ProductOverview({ product }: { product: Product }) {
           <motion.div variants={staggerItem} className="flex gap-3 mb-6">
             <div className="bg-black text-white px-4 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-sm">
               <div className="size-1.5 bg-white rounded-full"></div>
-              PawKitFull AirDry+
+              Pawkitfull AirDry+
             </div>
             <div className="bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-sm">
               <div className="size-1.5 bg-white rounded-full animate-pulse"></div>
