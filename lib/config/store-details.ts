@@ -8,11 +8,11 @@
 
 export const storeDetails = {
   // Brand
-  name: "The 10-Minute Reset",
+  name: "Pawkitfull",
   legalName: "", // e.g. "Ten Minute Reset LLC"
   
   // Contact
-  supportEmail: "", // e.g. "support@the10minutereset.com"
+  supportEmail: "pawkitfull@gmail.com",
   pressEmail: "",
   
   // Physical Address (Only provide if real and verified)

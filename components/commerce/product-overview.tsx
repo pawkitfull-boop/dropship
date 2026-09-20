@@ -72,7 +72,7 @@ export function ProductOverview({ product }: { product: Product }) {
           
           {/* Main Image */}
           <div
-            className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-[#e6bfa5] touch-pan-y"
+            className="relative w-full aspect-square rounded-3xl overflow-hidden bg-white touch-pan-y"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
@@ -89,7 +89,7 @@ export function ProductOverview({ product }: { product: Product }) {
                   src={product.images[activeImageIndex]?.url || "/images/dryer-hero.jpg"}
                   alt={product.title}
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover size-full"
+                  className="object-contain size-full"
                   priority
                 />
               </motion.div>
@@ -132,7 +132,7 @@ export function ProductOverview({ product }: { product: Product }) {
                   src={image.url} 
                   alt={`Thumbnail ${index + 1}`} 
                   sizes="80px"
-                  className="object-cover size-full"
+                  className="object-contain size-full"
                 />
               </motion.button>
             ))}
