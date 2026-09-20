@@ -69,7 +69,7 @@ export function ProductBeforeAfter() {
                 Tangible Results
               </h3>
               <p className="text-lg text-gray-700 leading-relaxed mb-8 max-w-[40ch]">
-                The Pawkitfull AirDry Bag helps dry your dog in minutes, eliminating wet dog smell, preventing skin irritations, and keeping your home clean—without heaviness.
+                The PawKitFull AirDry+ helps dry your dog in minutes, eliminating wet dog smell, preventing skin irritations, and keeping your home clean—without heaviness.
               </p>
               <div className="text-sm font-medium text-orange-800">
                 98% saw a completely dry coat in under 15 minutes.

@@ -4,7 +4,7 @@ export const products: Product[] = [
   {
     id: "prod_dryer_bag",
     handle: "pawkitfull-airdry-bag",
-    title: "Pawkitfull AirDry Bag",
+    title: "PawKitFull AirDry+",
     positioning: "Dry your dog in minutes, not hours.",
     description: "Stop wrestling with towels and terrifying your pet with loud hair dryers. This portable, foldable blow dryer bag turns bath time from a chore into a breeze. Fast, safe, and stress-free for both you and your furry friend.",
     benefits: [
@@ -15,7 +15,7 @@ export const products: Product[] = [
       "Made with safe, chemical-free materials"
     ],
     included: [
-      "1x Pawkitfull AirDry Bag"
+      "1x PawKitFull AirDry+"
     ],
     materialsAndCare: "Made with no high-concerned chemicals, ensuring pet safety during grooming. Hand wash or wipe clean.",
     sizeAndSpecs: "Available in S, M, L, XL. Weighs only 0.125 kg and packs down to 20 x 20 x 2 cm. Features an EU plug for European compatibility.",
@@ -26,7 +26,7 @@ export const products: Product[] = [
       { question: "How does it work?", answer: "Simply towel dry your pet, place them in the bag, secure it, and attach your hair dryer to the hose. Watch them dry quickly and safely!" }
     ],
     images: [
-      { url: "/images/white-dog.jpg", altText: "Small white dog wearing Pawkitfull AirDry Bag", aspectRatio: "square" },
+      { url: "/images/white-dog.jpg", altText: "Small white dog wearing PawKitFull AirDry+", aspectRatio: "square" },
       { url: "/images/gallery-golden.jpg", altText: "Golden Retriever using the dryer bag", aspectRatio: "square" },
       { url: "/images/gallery-frenchie.jpg", altText: "French Bulldog studio shot", aspectRatio: "portrait" },
       { url: "/images/gallery-hose.jpg", altText: "Hose detail connection", aspectRatio: "square" }

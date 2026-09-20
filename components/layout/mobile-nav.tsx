@@ -126,14 +126,14 @@ export function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                     >
                       <CustomImage
                         src="/images/white-dog.jpg"
-                        alt="Pawkitfull AirDry Bag"
+                        alt="PawKitFull AirDry+"
                         aspectRatio="landscape"
                         sizes="(max-width: 420px) 100vw, 420px"
                         zoomOnHover
                       />
                       <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink-deep/90 to-transparent p-5 pt-16">
                         <p className="text-mono-caption mb-1.5 text-text-muted">Start here</p>
-                        <p className="text-h3 text-bone">Pawkitfull AirDry Bag</p>
+                        <p className="text-h3 text-bone">PawKitFull AirDry+</p>
                         <p className="text-sm text-bone-muted mt-1">From $34.99</p>
                       </div>
                     </Link>

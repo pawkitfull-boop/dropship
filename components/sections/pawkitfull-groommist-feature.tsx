@@ -15,7 +15,7 @@ export function PawkitfullGroommistFeature() {
           <div className="relative w-full max-w-[400px] aspect-[4/5] bg-white rounded-3xl overflow-hidden shadow-xl border-4 border-white flex items-center justify-center">
             <CustomImage 
               src="/images/gallery-frenchie.jpg" 
-              alt="Pawkitfull AirDry Bag steps" 
+              alt="PawKitFull AirDry+ steps" 
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover absolute inset-0 size-full"
             />
