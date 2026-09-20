@@ -33,10 +33,10 @@ export const products: Product[] = [
       { url: "/images/size-guide-v2.jpg", altText: "Dog Drying Bag Size Guide", aspectRatio: "square" }
     ],
     variants: [
-      { id: "gid://shopify/ProductVariant/56359890321700", title: "Small", price: 39.99, sku: "PDB-S", availableForSale: true },
-      { id: "gid://shopify/ProductVariant/56359890354468", title: "Medium", price: 39.99, sku: "PDB-M", availableForSale: true },
-      { id: "gid://shopify/ProductVariant/56359890387236", title: "Large", price: 39.99, sku: "PDB-L", availableForSale: true },
-      { id: "gid://shopify/ProductVariant/56359890420004", title: "Extra Large", price: 39.99, sku: "PDB-XL", availableForSale: true }
+      { id: "gid://shopify/ProductVariant/56361504342308", title: "Small", price: 39.99, sku: "PDB-S", availableForSale: true },
+      { id: "gid://shopify/ProductVariant/56361504309540", title: "Medium", price: 39.99, sku: "PDB-M", availableForSale: true },
+      { id: "gid://shopify/ProductVariant/56361504276772", title: "Large", price: 39.99, sku: "PDB-L", availableForSale: true },
+      { id: "gid://shopify/ProductVariant/56361504375076", title: "Extra Large", price: 39.99, sku: "PDB-XL", availableForSale: true }
     ],
     availableForSale: true,
     tags: ["dogs", "cats", "clean", "hero"]
