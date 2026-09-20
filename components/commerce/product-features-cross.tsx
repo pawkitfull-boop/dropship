@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { Image as CustomImage } from "@/components/ui/image"
 import { Wind, Shield, Clock, Search } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -75,95 +74,17 @@ export function ProductFeaturesCross() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="relative grid grid-cols-1 lg:grid-cols-3 gap-10 items-center"
+          className="relative grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
         >
-          
-          {/* Left Features */}
-          <div className="flex flex-col gap-12 lg:pr-10 z-10">
-            {features.slice(0, 2).map((feature, i) => (
-              <motion.div key={i} variants={blockVariants} className="bg-green-50/50 p-8 rounded-2xl border border-green-100/50 transform transition-transform hover:-translate-y-1">
-                <div className="bg-white size-12 rounded-full flex items-center justify-center shadow-sm mb-6 text-green-700">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold text-black mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Center Image */}
-          <motion.div 
-            variants={{
-              hidden: { scale: 0.8, opacity: 0 },
-              visible: { scale: 1, opacity: 1, transition: { type: "spring", stiffness: 200, damping: 20, delay: 0.2 } }
-            }}
-            className="relative flex justify-center items-center"
-          >
-            {/* SVG Lines pointing to features (Desktop only) */}
-            <div className="absolute inset-0 w-[150%] left-[-25%] h-full hidden lg:block -z-10 pointer-events-none">
-              <svg className="w-full h-full text-green-200" viewBox="0 0 1000 800" preserveAspectRatio="none">
-                <motion.path 
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
-                  d="M 250 250 Q 500 250 500 400" 
-                  fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" 
-                  className="animate-[dash_20s_linear_infinite]" 
-                />
-                <motion.path 
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
-                  d="M 250 550 Q 500 550 500 400" 
-                  fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" 
-                  className="animate-[dash_20s_linear_infinite]" 
-                />
-                <motion.path 
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
-                  d="M 750 250 Q 500 250 500 400" 
-                  fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" 
-                  className="animate-[dash_20s_linear_infinite]" 
-                />
-                <motion.path 
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
-                  d="M 750 550 Q 500 550 500 400" 
-                  fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" 
-                  className="animate-[dash_20s_linear_infinite]" 
-                />
-              </svg>
-            </div>
-
-            <div className="relative w-full max-w-[400px] aspect-square lg:aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl group">
-              <CustomImage 
-                src="/images/feature-cross.jpg" 
-                alt="Happy pet owner with foldable dryer bag" 
-                sizes="(max-width: 1024px) 100vw, 33vw"
-                className="object-cover size-full transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-          </motion.div>
-
-          {/* Right Features */}
-          <div className="flex flex-col gap-12 lg:pl-10 z-10">
-            {features.slice(2, 4).map((feature, i) => (
-              <motion.div key={i} variants={blockVariants} className="bg-green-50/50 p-8 rounded-2xl border border-green-100/50 transform transition-transform hover:-translate-y-1">
-                <div className="bg-white size-12 rounded-full flex items-center justify-center shadow-sm mb-6 text-green-700">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold text-black mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-
+          {features.map((feature, i) => (
+            <motion.div key={i} variants={blockVariants} className="bg-green-50/50 p-8 rounded-2xl border border-green-100/50 transform transition-transform hover:-translate-y-1 h-full">
+              <div className="bg-white size-12 rounded-full flex items-center justify-center shadow-sm mb-6 text-green-700">
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-bold text-black mb-3">{feature.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
 
