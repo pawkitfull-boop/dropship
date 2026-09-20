@@ -179,96 +179,34 @@ export function ProductOverview({ product }: { product: Product }) {
 
           {/* Accordion */}
           <motion.div variants={staggerItem} className="mt-12">
-            <Accordion.Root type="single" collapsible className="w-full" defaultValue="item-1">
-              
-              {product.faqs && product.faqs.length > 0 && (
-                <Accordion.Item value="faq" className="border-t border-gray-200">
-                  <Accordion.Header className="flex">
-                    <Accordion.Trigger className="group flex flex-1 items-center justify-between py-6 text-left text-lg font-bold text-black transition-all">
-                      Frequently Asked Questions
-                      <div className="text-black group-data-[state=open]:hidden">
-                        <Plus size={20} strokeWidth={2} />
-                      </div>
-                      <div className="text-black hidden group-data-[state=open]:block">
-                        <Minus size={20} strokeWidth={2} />
-                      </div>
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content className="overflow-hidden text-sm text-gray-500 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                    <div className="pb-6 space-y-6">
-                      {product.faqs.map((faq, index) => (
-                        <div key={index}>
-                          <h4 className="font-bold text-black mb-1">{faq.question}</h4>
-                          <p className="leading-relaxed">{faq.answer}</p>
+            <h3 className="text-[1.35rem] font-bold text-black mb-6">Frequently Asked Questions:</h3>
+            {product.faqs && product.faqs.length > 0 && (
+              <Accordion.Root type="single" collapsible className="w-full" defaultValue="faq-0">
+                {product.faqs.map((faq, index) => (
+                  <Accordion.Item key={`faq-${index}`} value={`faq-${index}`} className="border-t border-gray-200 last:border-b">
+                    <Accordion.Header className="flex">
+                      <Accordion.Trigger className="group flex flex-1 items-center justify-between py-5 text-left text-[15px] font-semibold text-black transition-all">
+                        <span className="flex items-center gap-3">
+                          <span className="text-gray-400 font-normal">{index + 1}.</span>
+                          {faq.question}
+                        </span>
+                        <div className="text-gray-400 group-hover:text-black transition-colors group-data-[state=open]:hidden">
+                          <Plus size={18} strokeWidth={2} />
                         </div>
-                      ))}
-                    </div>
-                  </Accordion.Content>
-                </Accordion.Item>
-              )}
-
-              <Accordion.Item value="item-1" className="border-t border-gray-200">
-                <Accordion.Header className="flex">
-                  <Accordion.Trigger className="group flex flex-1 items-center justify-between py-6 text-left text-lg font-bold text-black transition-all">
-                    What makes it special?
-                    <div className="text-black group-data-[state=open]:hidden">
-                      <Plus size={20} strokeWidth={2} />
-                    </div>
-                    <div className="text-black hidden group-data-[state=open]:block">
-                      <Minus size={20} strokeWidth={2} />
-                    </div>
-                  </Accordion.Trigger>
-                </Accordion.Header>
-                <Accordion.Content className="overflow-hidden text-sm text-gray-500 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                  <div className="pb-6 leading-relaxed">
-                    {product.description}
-                    <ul className="mt-4 list-disc pl-5 space-y-2">
-                      {product.benefits.map((benefit, i) => (
-                        <li key={i}>{benefit}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </Accordion.Content>
-              </Accordion.Item>
-
-              <Accordion.Item value="item-2" className="border-t border-gray-200">
-                <Accordion.Header className="flex">
-                  <Accordion.Trigger className="group flex flex-1 items-center justify-between py-6 text-left text-lg font-bold text-black transition-all">
-                    How to use it?
-                    <div className="text-black group-data-[state=open]:hidden">
-                      <Plus size={20} strokeWidth={2} />
-                    </div>
-                    <div className="text-black hidden group-data-[state=open]:block">
-                      <Minus size={20} strokeWidth={2} />
-                    </div>
-                  </Accordion.Trigger>
-                </Accordion.Header>
-                <Accordion.Content className="overflow-hidden text-sm text-gray-500 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                  <div className="pb-6 leading-relaxed">
-                    {product.materialsAndCare || "Place your pet inside the bag, secure the straps, and connect your standard hair dryer to the hose attachment. Turn on low heat and watch them dry in minutes."}
-                  </div>
-                </Accordion.Content>
-              </Accordion.Item>
-
-              <Accordion.Item value="item-3" className="border-t border-gray-200">
-                <Accordion.Header className="flex">
-                  <Accordion.Trigger className="group flex flex-1 items-center justify-between py-6 text-left text-lg font-bold text-black transition-all">
-                    Expert tip
-                    <div className="text-black group-data-[state=open]:hidden">
-                      <Plus size={20} strokeWidth={2} />
-                    </div>
-                    <div className="text-black hidden group-data-[state=open]:block">
-                      <Minus size={20} strokeWidth={2} />
-                    </div>
-                  </Accordion.Trigger>
-                </Accordion.Header>
-                <Accordion.Content className="overflow-hidden text-sm text-gray-500 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                  <div className="pb-6 leading-relaxed">
-                    Always start with the lowest heat setting on your hair dryer to ensure your pet is comfortable, and gradually increase if needed.
-                  </div>
-                </Accordion.Content>
-              </Accordion.Item>
-            </Accordion.Root>
+                        <div className="text-black hidden group-data-[state=open]:block">
+                          <Minus size={18} strokeWidth={2} />
+                        </div>
+                      </Accordion.Trigger>
+                    </Accordion.Header>
+                    <Accordion.Content className="overflow-hidden text-[14px] text-gray-500 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                      <div className="pb-5 pl-7 leading-relaxed">
+                        {faq.answer}
+                      </div>
+                    </Accordion.Content>
+                  </Accordion.Item>
+                ))}
+              </Accordion.Root>
+            )}
           </motion.div>
           
           <motion.div variants={staggerItem} className="mt-8 text-xs text-gray-400 leading-relaxed max-w-[60ch]">
