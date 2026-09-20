@@ -139,7 +139,7 @@ export function BundleBuyBox({ product }: BundleBuyBoxProps) {
             >
               {/* Most Popular Badge on Trio */}
               {key === "trio" && (
-                <div className="absolute top-0 right-0 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg z-10">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] font-bold px-4 py-0.5 rounded-b-md z-10">
                   Most Popular
                 </div>
               )}
