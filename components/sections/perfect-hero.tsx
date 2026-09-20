@@ -14,7 +14,7 @@ export function PerfectHero() {
           src="/images/dryer-hero.png" 
           alt="Samoyed dog using the Foldable Pet Hair Blow Dryer Bag" 
           sizes="100vw"
-          className="object-cover absolute inset-0 size-full object-[70%_center] md:object-center"
+          className="object-cover absolute inset-0 size-full object-left md:object-center"
           priority
         />
         {/* On phones the copy sits directly on the photo with far less room
