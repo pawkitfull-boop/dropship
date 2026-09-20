@@ -45,7 +45,7 @@ export function ConsentBanner() {
           animate={{ y: 0, opacity: 1, scale: 1 }}
           exit={{ y: "120%", opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.5, type: "spring", bounce: 0.2 }}
-          className="fixed bottom-4 left-4 right-4 z-[60] rounded-2xl border border-line/20 bg-white p-5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] sm:bottom-6 sm:left-6 sm:right-auto sm:max-w-[340px]"
+          className="fixed bottom-4 left-4 right-4 z-[60] rounded-2xl border border-line/20 bg-white p-5 shadow-[0_8px_30px_rgb(0,0,0,0.08)] sm:bottom-6 sm:right-6 sm:left-auto sm:max-w-[340px]"
         >
           <div className="flex flex-col gap-4">
             <div className="flex items-start gap-3">
