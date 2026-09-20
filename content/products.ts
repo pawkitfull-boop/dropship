@@ -32,10 +32,10 @@ export const products: Product[] = [
       { url: "/images/gallery-hose.jpg", altText: "Hose detail connection", aspectRatio: "square" }
     ],
     variants: [
-      { id: "gid://shopify/ProductVariant/56359890321700", title: "Small", price: 39.95, sku: "PDB-S", availableForSale: true },
-      { id: "gid://shopify/ProductVariant/56359890354468", title: "Medium", price: 39.95, sku: "PDB-M", availableForSale: true },
-      { id: "gid://shopify/ProductVariant/56359890387236", title: "Large", price: 39.95, sku: "PDB-L", availableForSale: true },
-      { id: "gid://shopify/ProductVariant/56359890420004", title: "Extra Large", price: 39.95, sku: "PDB-XL", availableForSale: true }
+      { id: "gid://shopify/ProductVariant/56359890321700", title: "Small", price: 34.99, sku: "PDB-S", availableForSale: true },
+      { id: "gid://shopify/ProductVariant/56359890354468", title: "Medium", price: 34.99, sku: "PDB-M", availableForSale: true },
+      { id: "gid://shopify/ProductVariant/56359890387236", title: "Large", price: 34.99, sku: "PDB-L", availableForSale: true },
+      { id: "gid://shopify/ProductVariant/56359890420004", title: "Extra Large", price: 34.99, sku: "PDB-XL", availableForSale: true }
     ],
     availableForSale: true,
     tags: ["dogs", "cats", "clean", "hero"]

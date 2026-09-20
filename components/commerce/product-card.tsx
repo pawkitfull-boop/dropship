@@ -1,5 +1,6 @@
 import * as React from "react"
 import Link from "next/link"
+import { useCurrency } from "@/lib/commerce/currency-context"
 import { Product } from "@/lib/commerce/types"
 import { Image as CustomImage } from "@/components/ui/image"
 import type { ReviewSummary } from "@/lib/commerce/api"
@@ -43,12 +44,7 @@ export function ProductCard({
   const primary = product.images[0]
   const secondary = product.images[1]
 
-  const money = (n: number) =>
-    new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: n % 1 !== 0 ? 2 : 0,
-    }).format(n)
+  const { money } = useCurrency()
 
   return (
     <article className={cn("group relative flex flex-col h-full border-2 border-gray-100 rounded-3xl p-6 items-center text-center transition-shadow hover:shadow-xl bg-white", feature && "sm:col-span-2")}>

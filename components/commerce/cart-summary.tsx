@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { useCart } from "@/lib/commerce/cart-context"
+import { useCurrency } from "@/lib/commerce/currency-context"
 import { Lock, Truck, RefreshCcw, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { trackEvent } from "@/lib/analytics/core"
@@ -14,6 +15,7 @@ export function CartSummary({
   buttonClassName?: string
 }) {
   const { cartTotal, cartCount, checkout, isLoading, error } = useCart()
+  const { money } = useCurrency()
 
   const handleCheckout = () => {
     trackEvent("InitiateCheckout", {
@@ -40,7 +42,7 @@ export function CartSummary({
       <div className="flex items-baseline justify-between mb-2">
         <span className="text-xl font-bold text-black">Subtotal</span>
         <span className="text-2xl font-bold text-black tabular-nums">
-          ${cartTotal.toFixed(2)}
+          {money(cartTotal)}
         </span>
       </div>
 

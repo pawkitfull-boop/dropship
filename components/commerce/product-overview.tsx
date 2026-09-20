@@ -4,6 +4,7 @@ import * as React from "react"
 import { Product } from "@/lib/commerce/types"
 import { Image as CustomImage } from "@/components/ui/image"
 import { ArrowLeft, ArrowRight, Heart, Check, Plus, Minus } from "lucide-react"
+import { useCurrency } from "@/lib/commerce/currency-context"
 import * as Accordion from "@radix-ui/react-accordion"
 import { useCart } from "@/lib/commerce/cart-context"
 import { trackEvent } from "@/lib/analytics/core"
@@ -13,6 +14,7 @@ export function ProductOverview({ product }: { product: Product }) {
   const [selectedVariantId, setSelectedVariantId] = React.useState(product.variants[0]?.id)
   const [activeImageIndex, setActiveImageIndex] = React.useState(0)
   const { checkout, addItem } = useCart()
+  const { money } = useCurrency()
 
   const selectedVariant = product.variants.find((v) => v.id === selectedVariantId) || product.variants[0]
   const isAvailable = product.availableForSale && selectedVariant.availableForSale
@@ -36,13 +38,6 @@ export function ProductOverview({ product }: { product: Product }) {
       image: product.images[0]?.url || ""
     })
   }
-
-  const money = (n: number) =>
-    new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: n % 1 !== 0 ? 2 : 0,
-    }).format(n)
     
   const nextImage = () => {
     setActiveImageIndex((prev) => (prev + 1) % product.images.length)

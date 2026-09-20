@@ -6,12 +6,18 @@ import { QuantityStepper } from "@/components/commerce/product-utils"
 import { Button } from "@/components/ui/button"
 import { AddToCartButton } from "@/components/commerce/add-to-cart-button"
 import { useCart } from "@/lib/commerce/cart-context"
+import { useCurrency } from "@/lib/commerce/currency-context"
 import { trackEvent } from "@/lib/analytics/core"
 
-export function BuyBoxClient({ product }: { product: Product }) {
+interface BuyBoxClientProps {
+  product: Product
+}
+
+export function BuyBoxClient({ product }: BuyBoxClientProps) {
   const [selectedVariantId, setSelectedVariantId] = React.useState(product.variants[0]?.id)
   const [quantity, setQuantity] = React.useState(1)
   const { checkout, addItem } = useCart()
+  const { money } = useCurrency()
 
   const selectedVariant = product.variants.find((v) => v.id === selectedVariantId) || product.variants[0]
   const isAvailable = product.availableForSale && selectedVariant.availableForSale
@@ -71,12 +77,6 @@ export function BuyBoxClient({ product }: { product: Product }) {
     }
   }
 
-  const money = (n: number) =>
-    new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: n % 1 !== 0 ? 2 : 0,
-    }).format(n)
 
   return (
     <div className="mt-8 border-t border-gray-100 pt-8">

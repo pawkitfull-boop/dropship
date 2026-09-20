@@ -5,9 +5,11 @@ import Link from "next/link"
 import { Image as CustomImage } from "@/components/ui/image"
 import { QuantityStepper } from "@/components/commerce/product-utils"
 import { useCart, CartItem } from "@/lib/commerce/cart-context"
+import { useCurrency } from "@/lib/commerce/currency-context"
 
 export function CartLineItem({ item }: { item: CartItem }) {
   const { updateQuantity, removeItem } = useCart()
+  const { money } = useCurrency()
 
   return (
     <div className="flex gap-4 border-b-2 border-gray-100 pb-6 last:border-0 last:pb-0">
@@ -24,7 +26,7 @@ export function CartLineItem({ item }: { item: CartItem }) {
           <Link href={`/products/${item.productHandle}`} className="text-base font-bold text-black transition-opacity hover:opacity-70 line-clamp-2">
             {item.productTitle}
           </Link>
-          <span className="shrink-0 text-base font-bold text-black tabular-nums">${(item.price * item.quantity).toFixed(2)}</span>
+          <span className="shrink-0 text-base font-bold text-black tabular-nums">{money(item.price * item.quantity)}</span>
         </div>
         
         {item.variantTitle !== "Default Title" && (

@@ -13,6 +13,7 @@ import { SkipLink } from "@/components/layout/skip-link";
 import { RouteFocus } from "@/components/layout/route-focus";
 import { RevealOrchestrator } from "@/components/layout/reveal";
 import { CartProvider } from "@/lib/commerce/cart-context";
+import { CurrencyProvider } from "@/lib/commerce/currency-context";
 import { CartDrawer } from "@/components/commerce/cart-drawer";
 
 import { ConsentBanner } from "@/components/marketing/consent-banner";
@@ -149,20 +150,21 @@ export default function RootLayout({
           <UtmTracker />
         </React.Suspense>
         
-        <CartProvider>
-          <SkipLink />
-          <RouteFocus />
-          <RevealOrchestrator />
-          <div className="min-h-dvh flex flex-col relative w-full overflow-x-hidden">
-            <Header />
-            <main id="main-content" tabIndex={-1} className="flex-1 outline-none w-full overflow-x-hidden">
-              {children}
-            </main>
-            <Footer />
-          </div>
-          <CartDrawer />
-
-        </CartProvider>
+        <CurrencyProvider>
+          <CartProvider>
+            <SkipLink />
+            <RouteFocus />
+            <RevealOrchestrator />
+            <div className="min-h-dvh flex flex-col relative w-full overflow-x-hidden">
+              <Header />
+              <main id="main-content" tabIndex={-1} className="flex-1 outline-none w-full overflow-x-hidden">
+                {children}
+              </main>
+              <Footer />
+            </div>
+            <CartDrawer />
+          </CartProvider>
+        </CurrencyProvider>
         
         <ConsentBanner />
         <AnalyticsQA />
