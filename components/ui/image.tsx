@@ -42,7 +42,7 @@ export function Image({
     return (
       <div
         className={cn(
-          "flex items-center justify-center bg-ink-raised",
+          "flex items-center justify-center bg-gray-50",
           ratioClass || "absolute inset-0 size-full",
           className
         )}
@@ -75,7 +75,7 @@ export function Image({
   if (!ratioClass) return img
 
   return (
-    <div className={cn("relative w-full overflow-hidden bg-ink-raised", ratioClass, className)}>
+    <div className={cn("relative w-full overflow-hidden bg-gray-50", ratioClass, className)}>
       {img}
     </div>
   )

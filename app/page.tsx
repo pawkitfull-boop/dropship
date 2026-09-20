@@ -6,7 +6,6 @@ import { PawkitfullGroommistFeature } from "@/components/sections/pawkitfull-gro
 import { PawkitfullProblemSolution } from "@/components/sections/pawkitfull-problem-solution"
 
 import { PawkitfullCatSection } from "@/components/sections/pawkitfull-cat-section"
-import { PerfectBundle } from "@/components/sections/perfect-bundle"
 import { PerfectSuccess } from "@/components/sections/perfect-success"
 import { PerfectReviewsNewsletter } from "@/components/sections/perfect-reviews-newsletter"
 import { StickyCartController } from "@/components/commerce/sticky-cart-controller"
@@ -28,7 +27,6 @@ export default async function Home() {
       <PawkitfullGroommistFeature />
       <PawkitfullProblemSolution />
       <PawkitfullCatSection />
-      <PerfectBundle />
       <PerfectSuccess />
       <PerfectReviewsNewsletter />
       {product && <StickyCartController product={product} />}
