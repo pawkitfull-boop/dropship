@@ -44,26 +44,29 @@ export function ConsentBanner() {
           initial={{ y: "100%", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: "100%", opacity: 0 }}
-          transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] z-[60] border border-line bg-ink-raised/95 p-5 backdrop-blur-xl md:inset-x-auto md:bottom-6 md:right-6 md:w-[24rem]"
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="fixed inset-x-0 bottom-0 z-[60] border-t border-line bg-ink-deep/95 px-4 py-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] backdrop-blur-md sm:px-6 md:py-4 md:pb-4"
         >
-          <div className="flex flex-col gap-3">
-            <h3 className="text-h3 text-bone">Cookies</h3>
+          <div className="mx-auto flex max-w-[88rem] flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-body-small text-text-secondary">
-              We use the cookies the site needs to work, plus optional analytics. Nothing is shared with advertising networks unless you accept.
+              We use cookies to improve your experience and personalize our marketing.{" "}
+              <a href="/policies/privacy" className="underline underline-offset-2 transition-colors hover:text-bone">
+                Learn more
+              </a>
+              .
             </p>
-            <div className="flex gap-2.5 pt-1">
+            <div className="flex shrink-0 items-center gap-2">
               <button 
                 onClick={() => handleConsent(false)}
-                className="h-11 flex-1 border border-line text-body-small text-text-secondary transition-colors hover:border-bone hover:text-text-primary"
+                className="h-9 px-4 text-body-small font-medium text-text-secondary transition-colors hover:text-bone"
               >
                 Decline
               </button>
               <button 
                 onClick={() => handleConsent(true)}
-                className="h-11 flex-1 bg-bone text-body-small font-medium text-ink transition-colors hover:bg-paper"
+                className="inline-flex h-9 items-center justify-center rounded-full bg-bone px-6 text-body-small font-medium text-ink transition-colors hover:bg-paper"
               >
-                Accept
+                Accept All
               </button>
             </div>
           </div>
