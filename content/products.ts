@@ -30,7 +30,7 @@ export const products: Product[] = [
       { url: "/images/gallery-golden.jpg", altText: "Golden Retriever using the dryer bag", aspectRatio: "square" },
       { url: "/images/gallery-frenchie.jpg", altText: "French Bulldog studio shot", aspectRatio: "portrait" },
       { url: "/images/gallery-hose.jpg", altText: "Hose detail connection", aspectRatio: "square" },
-      { url: "/images/size-guide.png", altText: "Dog Drying Bag Size Guide", aspectRatio: "square" }
+      { url: "/images/size-guide-v2.jpg", altText: "Dog Drying Bag Size Guide", aspectRatio: "square" }
     ],
     variants: [
       { id: "gid://shopify/ProductVariant/56359890321700", title: "Small", price: 39.99, sku: "PDB-S", availableForSale: true },
