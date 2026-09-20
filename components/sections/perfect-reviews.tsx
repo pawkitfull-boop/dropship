@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Star, ArrowRightCircle } from "lucide-react"
+import { Star } from "lucide-react"
 
 const REVIEWS = [
   {
@@ -30,7 +30,7 @@ const REVIEWS = [
   }
 ]
 
-export function PerfectReviewsNewsletter() {
+export function PerfectReviews() {
   return (
     <section className="w-full bg-white px-gutter py-16 md:py-24 overflow-hidden relative border-t-[16px] border-[#cde4f0]">
       <div className="mx-auto max-w-[88rem] flex flex-col items-center">
@@ -71,43 +71,6 @@ export function PerfectReviewsNewsletter() {
               </p>
             </div>
           ))}
-        </div>
-
-        {/* Newsletter Pill Bar */}
-        <div className="w-full max-w-6xl bg-black rounded-3xl md:rounded-full p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mt-8 shadow-2xl relative">
-          
-          {/* Claim Off Badge */}
-          <div className="absolute -left-6 -bottom-6 hidden size-[100px] items-center justify-center rounded-full bg-black text-white font-bold text-center leading-tight shadow-xl border-4 border-white md:flex">
-            <span className="text-lg">Claim<br/>15% Off</span>
-          </div>
-
-          <div className="flex-1 md:ml-12 text-center md:text-left">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-              Join the Pawkitfull Pack
-            </h3>
-            <p className="text-[#a0a0a0] text-sm md:text-base">
-              We'll send you new product drops, pet care tips, and exclusive offers.
-            </p>
-          </div>
-
-          <form 
-            onSubmit={(e) => e.preventDefault()} 
-            className="flex-1 w-full max-w-md bg-[#222] rounded-full p-1.5 flex items-center shadow-inner"
-          >
-            <input 
-              type="email" 
-              placeholder="email@example.com" 
-              className="w-full min-w-0 flex-1 bg-transparent text-white px-5 sm:px-6 py-3 outline-none placeholder:text-gray-500 text-base sm:text-sm"
-              required
-            />
-            <button 
-              type="submit" 
-              className="flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-[#00c881] px-5 sm:px-6 text-sm font-bold text-white transition-colors hover:bg-[#00a66b]"
-            >
-              SUBMIT
-              <ArrowRightCircle size={18} fill="white" className="text-[#00c881]" />
-            </button>
-          </form>
         </div>
 
       </div>

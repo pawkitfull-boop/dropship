@@ -7,7 +7,7 @@ import { PawkitfullProblemSolution } from "@/components/sections/pawkitfull-prob
 
 import { PawkitfullCatSection } from "@/components/sections/pawkitfull-cat-section"
 import { PerfectSuccess } from "@/components/sections/perfect-success"
-import { PerfectReviewsNewsletter } from "@/components/sections/perfect-reviews-newsletter"
+import { PerfectReviews } from "@/components/sections/perfect-reviews"
 import { StickyCartController } from "@/components/commerce/sticky-cart-controller"
 
 import { getProduct } from "@/lib/commerce/api"
@@ -28,7 +28,7 @@ export default async function Home() {
       <PawkitfullProblemSolution />
       <PawkitfullCatSection />
       <PerfectSuccess />
-      <PerfectReviewsNewsletter />
+      <PerfectReviews />
       {product && <StickyCartController product={product} />}
     </div>
   )
