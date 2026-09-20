@@ -66,7 +66,7 @@ export function CartSummary({
       </div>
 
       <p className="mt-2 text-sm text-gray-500 font-medium">
-        Shipping and taxes calculated at checkout.
+        Taxes calculated at checkout.
       </p>
 
       <Button
