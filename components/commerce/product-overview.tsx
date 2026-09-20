@@ -231,7 +231,7 @@ export function ProductOverview({ product }: { product: Product }) {
           </motion.div>
           
           <motion.div variants={staggerItem} className="mt-8 text-xs text-gray-400 leading-relaxed max-w-[60ch]">
-            Each set includes the foldable drying bag and a universal hose attachment. Suitable for all breeds from small terriers to large retrievers. Store in a dry place when not in use.
+            Store in a dry place when not in use.
           </motion.div>
 
         </motion.div>
