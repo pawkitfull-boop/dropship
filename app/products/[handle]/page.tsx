@@ -17,8 +17,6 @@ import { ProductFeaturesCross } from "@/components/commerce/product-features-cro
 import { ProductBeforeAfter } from "@/components/commerce/product-before-after"
 import { ProductSteps } from "@/components/commerce/product-steps"
 import { ProductTestimonials } from "@/components/commerce/product-testimonials"
-import { ProductFaq } from "@/components/commerce/product-faq"
-
 export async function generateStaticParams() {
   const products = await getProducts()
   return products.map((product) => ({
@@ -146,8 +144,6 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
       {/* Testimonials */}
       <ProductTestimonials />
 
-      {/* Frequently Asked Questions */}
-      <ProductFaq product={product} />
 
       {/* Related */}
       {relatedProducts.length > 0 && (

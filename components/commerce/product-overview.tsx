@@ -223,7 +223,7 @@ export function ProductOverview({ product }: { product: Product }) {
                 </Accordion.Content>
               </Accordion.Item>
 
-              <Accordion.Item value="item-3" className="border-t border-gray-200 border-b">
+              <Accordion.Item value="item-3" className="border-t border-gray-200">
                 <Accordion.Header className="flex">
                   <Accordion.Trigger className="group flex flex-1 items-center justify-between py-6 text-left text-lg font-bold text-black transition-all">
                     Expert tip
@@ -241,6 +241,27 @@ export function ProductOverview({ product }: { product: Product }) {
                   </div>
                 </Accordion.Content>
               </Accordion.Item>
+
+              {product.faqs?.map((faq, index) => (
+                <Accordion.Item key={`faq-${index}`} value={`faq-${index}`} className="border-t border-gray-200 last:border-b">
+                  <Accordion.Header className="flex">
+                    <Accordion.Trigger className="group flex flex-1 items-center justify-between py-6 text-left text-lg font-bold text-black transition-all">
+                      {faq.question}
+                      <div className="text-black group-data-[state=open]:hidden">
+                        <Plus size={20} strokeWidth={2} />
+                      </div>
+                      <div className="text-black hidden group-data-[state=open]:block">
+                        <Minus size={20} strokeWidth={2} />
+                      </div>
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="overflow-hidden text-sm text-gray-500 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                    <div className="pb-6 leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  </Accordion.Content>
+                </Accordion.Item>
+              ))}
             </Accordion.Root>
           </motion.div>
           
