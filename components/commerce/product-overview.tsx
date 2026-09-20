@@ -146,9 +146,9 @@ export function ProductOverview({ product }: { product: Product }) {
           
           {/* Pills */}
           <motion.div variants={staggerItem} className="flex gap-3 mb-6">
-            <div className="bg-black text-white px-4 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-sm">
-              <div className="size-1.5 bg-white rounded-full"></div>
-              Pawkitfull AirDry+
+            <div className="bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold flex items-center gap-2">
+              <div className="size-1.5 bg-blue-500 rounded-full"></div>
+              Pet Drying Bag
             </div>
             <div className="bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-sm">
               <div className="size-1.5 bg-white rounded-full animate-pulse"></div>
