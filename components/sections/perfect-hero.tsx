@@ -5,29 +5,33 @@ import Link from "next/link"
 import { Image as CustomImage } from "@/components/ui/image"
 import { ArrowRight, Star } from "lucide-react"
 
+// The photo is landscape with the dog on the right and flat #c7deeb behind it.
+// Cropping that to a portrait phone leaves nothing but the dog's face, which is
+// what the copy was fighting with. Below md the hero stacks instead: copy on the
+// flat colour, photo as a band beneath it. From md up nothing changes — the photo
+// goes back to being an absolute background with the copy overlaid on it.
 export function PerfectHero() {
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative flex w-full flex-col overflow-hidden bg-[#c7deeb] md:block md:bg-transparent">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <CustomImage 
-          src="/images/dryer-hero.png" 
-          alt="Samoyed dog using the Foldable Pet Hair Blow Dryer Bag" 
+      <div className="relative z-0 order-2 h-[34vh] min-h-[190px] w-full md:absolute md:inset-0 md:order-none md:h-auto md:min-h-0">
+        <CustomImage
+          src="/images/dryer-hero.png"
+          alt="Samoyed dog using the Foldable Pet Hair Blow Dryer Bag"
           sizes="100vw"
-          className="object-cover absolute inset-0 size-full object-[70%_center] md:object-center"
+          className="absolute inset-0 size-full object-cover object-[62%_center] md:object-center"
           priority
         />
-        {/* On phones the copy sits directly on the photo with far less room
-            to the left than on desktop, so it gets a scrim to stay legible. */}
+        {/* From md up the copy still overlaps the photo, so it keeps a scrim. */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/45 to-transparent lg:hidden"
+          className="absolute inset-0 hidden bg-gradient-to-r from-white/85 via-white/45 to-transparent md:block lg:hidden"
         />
       </div>
 
       {/* Sits exactly below the header. dvh (not vh) so the mobile browser
           chrome collapsing doesn't leave the CTA hanging off-screen. */}
-      <div className="relative z-10 mx-auto flex max-w-[88rem] flex-col justify-start lg:justify-center px-gutter py-16 lg:py-0 lg:pl-12 xl:pl-24 h-[calc(100dvh_-_var(--header-h,104px))] min-h-[520px] xl:min-h-[600px]">
+      <div className="relative z-10 order-1 mx-auto flex w-full max-w-[88rem] flex-col justify-start px-gutter py-14 md:order-none md:h-[calc(100dvh_-_var(--header-h,104px))] md:min-h-[520px] md:py-16 lg:justify-center lg:py-0 lg:pl-12 xl:pl-24 xl:min-h-[600px]">
         
         {/* Content Box (Constrained width so it stays on the left) */}
         <div className="flex flex-col max-w-xl">
@@ -65,7 +69,7 @@ export function PerfectHero() {
       </div>
 
       {/* Trust Strip */}
-      <div className="bg-[#faebd7] py-4 overflow-hidden w-full relative flex border-t border-gray-200/50">
+      <div className="order-3 bg-[#faebd7] py-4 overflow-hidden w-full relative flex border-t border-gray-200/50 md:order-none">
         <div className="flex items-center w-max min-w-full animate-marquee">
            {/* Duplicate the items to allow seamless looping */}
            {[...Array(4)].map((_, arrayIndex) => (
