@@ -13,7 +13,8 @@ import { SkipLink } from "@/components/layout/skip-link";
 import { RouteFocus } from "@/components/layout/route-focus";
 import { RevealOrchestrator } from "@/components/layout/reveal";
 import { CartProvider } from "@/lib/commerce/cart-context";
-import { CurrencyProvider, CurrencyCode } from "@/lib/commerce/currency-context";
+import { CurrencyProvider } from "@/lib/commerce/currency-context";
+import type { CurrencyCode } from "@/lib/commerce/currency-context";
 import { CartDrawer } from "@/components/commerce/cart-drawer";
 import { cookies } from "next/headers";
 
@@ -91,12 +92,13 @@ const websiteJsonLd = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const initialCurrency = cookies().get("preferred_currency")?.value as CurrencyCode | undefined;
+  const cookieStore = await cookies();
+  const initialCurrency = cookieStore.get("preferred_currency")?.value as CurrencyCode | undefined;
 
   return (
     <html lang="en" className="js">
