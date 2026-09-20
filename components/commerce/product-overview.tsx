@@ -123,9 +123,9 @@ export function ProductOverview({ product }: { product: Product }) {
               <div className="size-1.5 bg-blue-500 rounded-full"></div>
               Pet Drying Bag
             </div>
-            <div className="bg-red-500 text-white px-4 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-sm">
-              <div className="size-1.5 bg-white rounded-full animate-pulse"></div>
-              HOT
+            <div className="border border-red-500 bg-transparent text-red-500 px-4 py-1.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-sm">
+              <div className="size-1.5 bg-red-500 rounded-full animate-pulse"></div>
+              LOW STOCK
             </div>
           </motion.div>
 
