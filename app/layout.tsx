@@ -13,8 +13,9 @@ import { SkipLink } from "@/components/layout/skip-link";
 import { RouteFocus } from "@/components/layout/route-focus";
 import { RevealOrchestrator } from "@/components/layout/reveal";
 import { CartProvider } from "@/lib/commerce/cart-context";
-import { CurrencyProvider } from "@/lib/commerce/currency-context";
+import { CurrencyProvider, CurrencyCode } from "@/lib/commerce/currency-context";
 import { CartDrawer } from "@/components/commerce/cart-drawer";
+import { cookies } from "next/headers";
 
 import { ConsentBanner } from "@/components/marketing/consent-banner";
 import { AnalyticsQA } from "@/components/marketing/analytics-qa";
@@ -95,6 +96,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initialCurrency = cookies().get("preferred_currency")?.value as CurrencyCode | undefined;
+
   return (
     <html lang="en" className="js">
       <head>
@@ -150,7 +153,7 @@ export default function RootLayout({
           <UtmTracker />
         </React.Suspense>
         
-        <CurrencyProvider>
+        <CurrencyProvider initialCurrency={initialCurrency}>
           <CartProvider>
             <SkipLink />
             <RouteFocus />
