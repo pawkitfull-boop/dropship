@@ -38,7 +38,7 @@ export function CartLineItem({ item }: { item: CartItem }) {
             {discountedLineTotal < rawLineTotal ? (
               <>
                 <span className="text-xs text-gray-400 line-through tabular-nums">{money(rawLineTotal)}</span>
-                <span className="text-base font-bold text-red-600 tabular-nums">{money(discountedLineTotal)}</span>
+                <span className="text-base font-bold text-black tabular-nums">{money(discountedLineTotal)}</span>
               </>
             ) : (
               <span className="text-base font-bold text-black tabular-nums">{money(rawLineTotal)}</span>
