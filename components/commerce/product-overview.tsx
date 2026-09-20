@@ -180,7 +180,7 @@ export function ProductOverview({ product }: { product: Product }) {
           {/* Accordion */}
           <motion.div variants={staggerItem} className="mt-12">
             <h3 className="text-[1.35rem] font-bold text-black mb-6">Frequently Asked Questions:</h3>
-            <Accordion.Root type="single" collapsible className="w-full" defaultValue="faq-special">
+            <Accordion.Root type="single" collapsible className="w-full">
               
               <Accordion.Item value="faq-special" className="border-t border-gray-200">
                 <Accordion.Header className="flex">
