@@ -21,8 +21,8 @@ export default function CartPage() {
           {/* Hydration / Loading state */}
           {!isHydrated ? (
             <div className="py-24 text-center space-y-4 border-y border-line animate-pulse">
-              <div className="h-8 bg-ink-raised w-48 mx-auto rounded"></div>
-              <div className="h-4 bg-ink-raised w-32 mx-auto rounded"></div>
+              <div className="h-8 bg-gray-200 w-48 mx-auto rounded"></div>
+              <div className="h-4 bg-gray-200 w-32 mx-auto rounded"></div>
             </div>
           ) : items.length === 0 ? (
             <CartEmptyState />
@@ -62,7 +62,7 @@ export default function CartPage() {
 
               {/* Summary */}
               <div>
-                <div className="sticky top-28 border border-line">
+                <div className="lg:sticky lg:top-28 border border-line">
                   <CartSummary />
                 </div>
               </div>

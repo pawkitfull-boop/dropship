@@ -81,12 +81,6 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Shop",
-        "item": `${siteUrl}/collections/shop-all`
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
         "name": product.title,
         "item": `${siteUrl}/products/${product.handle}`
       }
@@ -112,16 +106,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
             </Link>
           </li>
           <li aria-hidden="true">/</li>
-          <li>
-            <Link
-              href="/collections/shop-all"
-              className="inline-flex min-h-6 items-center transition-colors hover:text-text-primary"
-            >
-              Shop
-            </Link>
-          </li>
-          <li aria-hidden="true">/</li>
-          <li className="truncate">
+          <li className="min-w-0 truncate">
             <span aria-current="page" className="text-text-secondary">
               {product.title}
             </span>

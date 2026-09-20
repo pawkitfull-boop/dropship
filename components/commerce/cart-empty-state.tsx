@@ -48,7 +48,7 @@ export function CartEmptyState({ isDrawer = false }: { isDrawer?: boolean }) {
           
             onClick={() => {
               if (isDrawer) closeCart()
-              router.push("/collections/shop-all")
+              router.push("/products/pawkitfull-airdry-bag")
             }}
           >
             Continue shopping

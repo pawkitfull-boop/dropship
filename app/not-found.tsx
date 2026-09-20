@@ -17,15 +17,14 @@ export default function NotFound() {
           That page is not here.
         </h1>
         <p className="measure mt-5 text-body-large text-text-secondary">
-          The link is broken or the page has moved. The whole collection is two
-          taps away.
+          The link is broken or the page has moved. Our product is just one tap away.
         </p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
           <Link
-            href="/collections/shop-all"
+            href="/products/pawkitfull-airdry-bag"
             className="inline-flex h-[52px] items-center justify-center bg-bone px-8 text-body font-medium text-ink transition-colors hover:bg-paper"
           >
-            Shop all tools
+            Shop the product
           </Link>
           <Link
             href="/"

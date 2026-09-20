@@ -40,7 +40,7 @@ export default function ErrorPage({
               Try again
             </button>
             <Link 
-              href="/collections/shop-all" 
+              href="/products/pawkitfull-airdry-bag" 
               className="inline-flex items-center justify-center h-14 px-8 text-body font-medium border border-line hover:border-line text-text-primary bg-transparent transition-colors flex-1"
             >
               Return to shop

@@ -129,7 +129,7 @@ export default function GuideDownloadPage() {
 
               <div className="pt-12">
                 <Link 
-                  href="/collections/shop-all"
+                  href="/products/pawkitfull-airdry-bag"
                   className="inline-block h-14 px-8 bg-ink-raised text-bone text-body font-medium transition-colors leading-[56px]"
                 >
                   Shop the tools you need

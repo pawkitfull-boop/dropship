@@ -35,7 +35,7 @@ export default function GuaranteePage() {
             </p>
             <div className="pt-8">
               <Link
-                href="/collections/shop-all"
+                href="/products/pawkitfull-airdry-bag"
                 className="inline-flex h-[52px] w-full items-center justify-center rounded-full bg-black px-8 text-body font-medium text-white transition-colors hover:bg-gray-900 sm:w-auto"
               >
                 Shop the tools
